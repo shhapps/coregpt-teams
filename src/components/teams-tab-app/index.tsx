@@ -1,6 +1,6 @@
-import {Theme} from '@radix-ui/themes'
-import {lazy, Suspense} from 'react'
-import {Toaster} from 'sonner'
+import { Theme } from '@radix-ui/themes'
+import { lazy, Suspense } from 'react'
+import { Toaster } from 'sonner'
 import '@radix-ui/themes/styles.css'
 import '@/styles/global.css'
 
@@ -9,7 +9,7 @@ import LazyRetry from '@/components/ui/lazy-retry'
 import Loader from '@/components/ui/loader'
 import LoaderBackdrop from '@/components/ui/loader-backdrop'
 import MessageSnackbar from '@/components/ui/message-snackbar'
-import {useAppStore} from '@/stores/app.store.ts'
+import { useAppStore } from '@/stores/app.store.ts'
 
 const Main = lazy(() => LazyRetry(() => import(/* webpackChunkName: "Main" */ '@/components/layout/main'), 'Main'))
 
@@ -28,6 +28,8 @@ const AppContent = () => {
 
 const App = () => {
   const { theme } = useAppStore()
+
+  console.log('My team is here =>', theme)
 
   return (
     <Theme appearance={theme as never} accentColor="indigo">
