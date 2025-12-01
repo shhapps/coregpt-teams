@@ -4,7 +4,7 @@ export const {
   VITE_APP_LAUNCH_MODE: APP_LAUNCH_MODE
 } = import.meta.env
 
-export const appName = 'ChatGPT AI for Outlook'
+export const appName = 'ChatGPT for Teams'
 
 export enum StoreNames {
   mainStore = appName,

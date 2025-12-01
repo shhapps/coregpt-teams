@@ -29,8 +29,6 @@ const AppContent = () => {
 const App = () => {
   const { theme } = useAppStore()
 
-  console.log('My team is here =>', theme)
-
   return (
     <Theme appearance={theme as never} accentColor="indigo">
       <AppContent />

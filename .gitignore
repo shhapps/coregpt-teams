@@ -31,3 +31,4 @@ dist-ssr
 
 # Temp files
 data
+packages/**/*.zip

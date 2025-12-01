@@ -13,14 +13,12 @@ const sslOptions = {
 
 const plugins: IPlugin[] = [new DevtoolsPlugin()]
 
-if (sslOptions.cert && sslOptions.key) plugins.push(new HttpPlugin(https.createServer(sslOptions)))
+if (process.env.NODE_ENV === 'development' && sslOptions.cert && sslOptions.key)
+  plugins.push(new HttpPlugin(https.createServer(sslOptions)))
 // Fallback to HTTP for local development if SSL certificates are not available
 else plugins.push(new HttpPlugin())
 
-const app = new App({
-  logger: new ConsoleLogger('tab', { level: 'debug' }),
-  plugins: plugins
-})
+const app = new App({ logger: new ConsoleLogger('tab', { level: 'debug' }), plugins: plugins })
 
 app.tab('home', join(cwd(), 'dist'))
 

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.24/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.24",
+  "version": "1.0.0",
+  "id": "2c91d858-bfd8-4647-b0d4-f18394a51547",
+  "developer": {
+    "name": "Shhapps Ltd. Liability Co.",
+    "websiteUrl": "https://shhapps.com",
+    "privacyUrl": "https://shhapps.com/privacy-policy",
+    "termsOfUseUrl": "https://shhapps.com/terms"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "ChatGPT - Local",
+    "full": "ChatGPT for Teams - Local"
+  },
+  "description": {
+    "short": "ChatGPT for Teams integration",
+    "full": "Use ChatGPT inside Teams without even moving moving"
+  },
+  "accentColor": "#FFFFFF",
+  "bots": [],
+  "composeExtensions": [],
+  "staticTabs": [
+    {
+      "entityId": "index0",
+      "name": "Home",
+      "contentUrl": "https://localhost:3001/tabs/home",
+      "websiteUrl": "https://localhost:3001/tabs/home",
+      "scopes": ["personal", "groupChat", "team"]
+    }
+  ],
+  "permissions": ["identity", "messageTeamMembers"],
+  "validDomains": ["localhost", "shhapps.com", "coregptapps.com"]
+}
