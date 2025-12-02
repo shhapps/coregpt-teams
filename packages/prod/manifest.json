@@ -18,7 +18,7 @@
     "full": "ChatGPT for Microsoft Teams"
   },
   "description": {
-    "short": "Access powerful AI assistance directly in Teams for instant answers and productivity.",
+    "short": "Access powerful AI assistance directly in Teams.",
     "full": "ChatGPT for Microsoft Teams brings powerful AI assistance directly into your workspace. Access intelligent responses, generate content, analyze information, and boost productivity without leaving Teams. Perfect for quick answers, brainstorming, drafting messages, summarizing content, and solving problems collaboratively. Works seamlessly in personal chats, group conversations, and channels. Free to start, works immediately after installation."
   },
   "accentColor": "#FFFFFF",
@@ -28,11 +28,11 @@
     {
       "entityId": "index0",
       "name": "ChatGPT",
-      "contentUrl": "https://team-app.coregptapps.com/tabs/home",
-      "websiteUrl": "https://team-app.coregptapps.com/tabs/home",
+      "contentUrl": "https://teams-app.coregptapps.com/tabs/home",
+      "websiteUrl": "https://teams-app.coregptapps.com/tabs/home",
       "scopes": ["personal", "groupChat", "team"]
     }
   ],
   "permissions": ["identity", "messageTeamMembers"],
-  "validDomains": ["shhapps.com", "coregptapps.com", "team-app.coregptapps.com"]
+  "validDomains": ["shhapps.com", "coregptapps.com", "teams-app.coregptapps.com"]
 }
