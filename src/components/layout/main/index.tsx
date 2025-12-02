@@ -1,13 +1,14 @@
 import { Box } from '@radix-ui/themes'
+import { useEffect } from 'react'
 
 import classes from './main.module.css'
-import { useEffect } from 'react'
-import { useAppStore } from '@/stores/app.store.ts'
+
+import Footer from '@/components/layout/footer'
+import Header from '@/components/layout/header'
+import AppTabs from '@/components/tabs/app-tabs'
 import Loader from '@/components/ui/loader'
 import { useAuthData } from '@/hooks/useAuthData.ts'
-import Header from '@/components/layout/header'
-import Footer from '@/components/layout/footer'
-import AppTabs from '@/components/tabs/app-tabs'
+import { useAppStore } from '@/stores/app.store.ts'
 
 const Index = () => {
   const { accessToken } = useAppStore()
