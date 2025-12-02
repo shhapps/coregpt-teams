@@ -74,6 +74,6 @@ jobs:
        echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
        ssh-keyscan -H ${{ secrets.EC2_IP_ADDRESS }} > ~/.ssh/known_hosts
    - name: connect and pull
-     run: ssh ubuntu@${{ secrets.EC2_IP_ADDRESS }} "cd /var/www/teams-app.coregptapps.com/coregpt-teams && sudo git fetch origin && sudo git reset --hard origin/main && bash deploy.sh prod && exit"
+     run: ssh ubuntu@${{ secrets.EC2_IP_ADDRESS }} "cd /var/www/teams-app.coregptapps.com/coregpt-teams && sudo git fetch origin && sudo git reset --hard origin/main && sudo bash deploy.sh prod && pm2 stop teams-app || true && pm2 start pm2-confs/pm2.prod.json && pm2 save && exit"
    - name: cleanup
      run: rm -rf ~/.ssh
