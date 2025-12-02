@@ -1,34 +1,46 @@
 #!/bin/bash
 
-if [ "$1" == "dev" ]; then
-  echo "Executing command for dev environment..."
-  echo "Installing packages: sudo npm install"
-  sudo npm install
-  echo "Building packages: sudo npm run build:dev"
-  sudo npm run build:dev
-  echo "Removing files from ../html directory"
-  sudo rm -rf ../html/*
-  echo "Moving files to ../html from ./dist directory"
-  sudo mv dist/* ../html/
-elif [ "$1" == "dev-b" ]; then
-  echo "Executing command for dev environment..."
-  echo "Building packages: sudo npm run build:dev"
-  sudo npm run build:dev
-  echo "Removing files from ../html directory"
-  sudo rm -rf ../html/*
-  echo "Moving files to ../html from ./dist directory"
-  sudo mv dist/* ../html/  
-elif [ "$1" == "prod" ]; then
-  echo "Executing command for prod environment..."
-  echo "Installing packages: sudo npm install"
-  sudo npm install
-  echo "Building packages: sudo npm run build"
-  sudo npm run build
-  echo "Removing files from ../html directory"
-  sudo rm -rf ../html/*
-  echo "Moving files to ../html from ./dist directory"
-  sudo mv dist/* ../html/
-else
-  echo "Please specify environment - dev or prod"
-  # insert command to execute for other environments here
+set -e
+
+ENV=$1
+
+if [ -z "$ENV" ]; then
+  echo "Usage: ./deploy.sh [dev|prod]"
+  exit 1
 fi
+
+if [ "$ENV" != "dev" ] && [ "$ENV" != "prod" ]; then
+  echo "Invalid environment. Please specify 'dev' or 'prod'"
+  exit 1
+fi
+
+echo "========================================"
+echo "Deploying CoreGPT Teams App - $ENV"
+echo "========================================"
+
+# Install dependencies
+echo "[1/4] Installing dependencies..."
+sudo npm install
+
+# Build frontend
+echo "[2/4] Building frontend..."
+sudo npm run build:frontend
+
+# Stop existing PM2 process if running
+echo "[3/4] Stopping existing PM2 process..."
+sudo pm2 stop teams-app || true
+
+# Start PM2 with appropriate config
+echo "[4/4] Starting PM2 process..."
+sudo pm2 start pm2-confs/pm2.$ENV.json
+
+# Save PM2 config to restart on reboot
+sudo pm2 save
+
+echo "========================================"
+echo "✓ Deployment completed successfully!"
+echo "========================================"
+echo "Environment: $ENV"
+echo "Process: teams-app"
+echo "Port: 5010"
+echo "========================================"

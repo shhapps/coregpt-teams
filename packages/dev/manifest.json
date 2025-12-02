@@ -14,8 +14,8 @@
     "outline": "outline.png"
   },
   "name": {
-    "short": "ChatGPT",
-    "full": "ChatGPT for Microsoft Teams"
+    "short": "ChatGPT - Dev",
+    "full": "ChatGPT for Teams - Dev"
   },
   "description": {
     "short": "Access powerful AI assistance directly in Teams for instant answers and productivity.",
@@ -27,12 +27,12 @@
   "staticTabs": [
     {
       "entityId": "index0",
-      "name": "ChatGPT",
-      "contentUrl": "https://team-app.coregptapps.com/tabs/home",
-      "websiteUrl": "https://team-app.coregptapps.com/tabs/home",
+      "name": "Home",
+      "contentUrl": "https://team-app-dev.coregptapps.com/tabs/home",
+      "websiteUrl": "https://team-app-dev.coregptapps.com/tabs/home",
       "scopes": ["personal", "groupChat", "team"]
     }
   ],
   "permissions": ["identity", "messageTeamMembers"],
-  "validDomains": ["shhapps.com", "coregptapps.com", "team-app.coregptapps.com"]
+  "validDomains": ["shhapps.com", "coregptapps.com"]
 }

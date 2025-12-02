@@ -74,6 +74,6 @@ jobs:
        echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
        ssh-keyscan -H ${{ secrets.EC2_IP_ADDRESS }} > ~/.ssh/known_hosts
    - name: connect and pull
-     run: ssh ubuntu@${{ secrets.EC2_IP_ADDRESS }} "cd /var/www/outlook-addin.coregptapps.com/coregpt-outlook && sudo git fetch origin && sudo git reset --hard origin/main && sudo bash deploy.sh prod && exit"
+     run: ssh ubuntu@${{ secrets.EC2_IP_ADDRESS }} "cd /var/www/teams-app.coregptapps.com/coregpt-outlook && sudo git fetch origin && sudo git reset --hard origin/main && sudo bash deploy.sh prod && exit"
    - name: cleanup
      run: rm -rf ~/.ssh
