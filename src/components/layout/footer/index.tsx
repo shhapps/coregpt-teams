@@ -7,12 +7,12 @@ import { ExternalLinks } from '@/utils/constants.ts'
 
 const Index = () => {
   return (
-    <Callout.Root size="2" asChild>
+    <Callout.Root size="3" asChild>
       <footer className={classes.needHelpContainer}>
         <Callout.Icon>
           <InfoCircledIcon /> &nbsp;
         </Callout.Icon>
-        <Callout.Text size="2" align="center">
+        <Callout.Text size="3" align="center">
           Need help? Contact{' '}
           <Link target="_blank" href={ExternalLinks.contactUs}>
             support
