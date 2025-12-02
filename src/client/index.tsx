@@ -1,9 +1,10 @@
+import type { JSX } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import TeamsTabApp from '@/components/teams-tab-app'
-import '@/styles/global.css'
 import { initSentry } from '@/utils/sentry.ts'
-import type { JSX } from 'react'
+
+import '@/styles/global.css'
 
 initSentry()
 

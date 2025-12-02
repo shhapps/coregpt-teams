@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.24/MicrosoftTeams.schema.json",
   "manifestVersion": "1.24",
   "version": "1.0.0",
-  "id": "2c91d858-bfd8-4647-b0d4-f18394a51547",
+  "id": "f038b730-f3c0-41be-acac-dc627cfce3e4",
   "developer": {
     "name": "Shhapps Ltd. Liability Co.",
     "websiteUrl": "https://shhapps.com",
@@ -14,8 +14,8 @@
     "outline": "outline.png"
   },
   "name": {
-    "short": "ChatGPT - Local",
-    "full": "ChatGPT for Teams - Local"
+    "short": "ChatGPT - Dev",
+    "full": "ChatGPT for Teams - Dev"
   },
   "description": {
     "short": "Access powerful AI assistance directly in Teams",
@@ -28,11 +28,11 @@
     {
       "entityId": "index0",
       "name": "Home",
-      "contentUrl": "https://localhost:3001/tabs/home",
-      "websiteUrl": "https://localhost:3001/tabs/home",
+      "contentUrl": "https://teams-app-dev.coregptapps.com/tabs/home",
+      "websiteUrl": "https://teams-app-dev.coregptapps.com/tabs/home",
       "scopes": ["personal", "groupChat", "team"]
     }
   ],
   "permissions": ["identity", "messageTeamMembers"],
-  "validDomains": ["localhost", "shhapps.com", "coregptapps.com"]
+  "validDomains": ["shhapps.com", "teams-app-dev.coregptapps.com"]
 }

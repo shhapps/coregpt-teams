@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "teams-app",
+      "script": "npm run start:backend",
+      "instances": 1,
+      "exec_mode": "fork"
+    }
+  ]
+}

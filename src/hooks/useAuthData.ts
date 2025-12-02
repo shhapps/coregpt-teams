@@ -1,6 +1,7 @@
+import * as teamsJs from '@microsoft/teams-js'
+
 import { useAppStore } from '@/stores/app.store'
 import { getUserData, upsertMicrosoftUser } from '@/utils/axios-utils'
-import * as teamsJs from '@microsoft/teams-js'
 
 export const useAuthData = () => {
   const { accessToken, userInfo, updateUserInfo, updateAccessToken, requestId } = useAppStore()
