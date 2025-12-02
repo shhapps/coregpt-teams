@@ -20,11 +20,11 @@ echo "========================================"
 
 # Install dependencies
 echo "[1/4] Installing dependencies..."
-sudo npm install
+npm install
 
 # Build frontend
 echo "[2/4] Building frontend..."
-sudo npm run build:frontend
+npm run build:frontend
 
 # Stop existing PM2 process if running
 echo "[3/4] Stopping existing PM2 process..."
