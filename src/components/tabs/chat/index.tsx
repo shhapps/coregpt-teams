@@ -1,5 +1,5 @@
 import { CheckIcon, CopyIcon, Cross2Icon } from '@radix-ui/react-icons'
-import { Box, Flex, Grid, IconButton, Text, TextArea, Tooltip } from '@radix-ui/themes'
+import { Badge, Box, Flex, Grid, IconButton, Text, TextArea, Tooltip } from '@radix-ui/themes'
 import { Bot, CircleStop, SendHorizonal, SquarePen } from 'lucide-react'
 import {
   createRef,
@@ -205,7 +205,7 @@ export default function Chat() {
               <Bot size="30" />
             </IconButton>
             <Text size="5" weight="bold" style={{ color: `var(${cssThemeColorVarName})` }}>
-              GPT Chat Assistant
+              AI Chat Assistant
             </Text>
           </Flex>
           <Tooltip content="New Chat">
@@ -213,7 +213,7 @@ export default function Chat() {
               disabled={chatResponseLoading || !messages.length}
               onClick={handleNewChatClick}
               variant="ghost"
-              size="2"
+              size="3"
               className={classes.newChatIcon}
             >
               <SquarePen size="20" />
@@ -249,6 +249,11 @@ export default function Chat() {
                   className={`${classes.assistantMessage} ${theme === Theme.light ? classes.light : classes.dark}`}
                   ref={assistantRefs.current[i]}
                 >
+                  {!chatResponseLoading && (
+                    <Badge color="gray" className={classes.aiGeneratedContent}>
+                      AI generated
+                    </Badge>
+                  )}
                   <ReactMarkdown>{message.content}</ReactMarkdown>
                   {!chatResponseLoading && (
                     <CopyBtn index={i} content={message.content} assistantRefs={assistantRefs} />

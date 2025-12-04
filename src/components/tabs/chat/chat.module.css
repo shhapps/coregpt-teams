@@ -4,6 +4,7 @@
     height: calc(100vh - 110px);
     margin-top: 10px;
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 .header {
@@ -71,6 +72,12 @@
     font-weight: 500;
     background-color: #f5f5f5;
     color: var(--black-a12) !important;
+}
+
+.aiGeneratedContent {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .light {
