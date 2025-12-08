@@ -1,6 +1,6 @@
 import { CheckIcon, CopyIcon, Cross2Icon } from '@radix-ui/react-icons'
 import { Badge, Box, Flex, Grid, IconButton, Text, TextArea, Tooltip } from '@radix-ui/themes'
-import { Bot, CircleStop, SendHorizonal, SquarePen } from 'lucide-react'
+import { Bot, CircleArrowUp, CircleStop, SquarePen } from 'lucide-react'
 import {
   createRef,
   type FC,
@@ -289,7 +289,7 @@ export default function Chat() {
           variant="ghost"
           autoFocus
         >
-          {chatResponseLoading ? <CircleStop strokeWidth="1.5" color="red" size="25" /> : <SendHorizonal size="25" />}
+          {chatResponseLoading ? <CircleStop strokeWidth="1.5" color="red" size="24" /> : <CircleArrowUp size="24" />}
         </IconButton>
       </Box>
     </Box>
