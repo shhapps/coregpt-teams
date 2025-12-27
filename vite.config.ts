@@ -21,14 +21,14 @@ export default defineConfig(async ({ mode }) => {
     plugins: [react(), sentryViteConfig],
     base: '/tabs/home/',
     server: {
-      port: 5173,
+      port: 3000,
       strictPort: true,
       https: {
         key: readFileSync(resolve(__dirname, './certs/server.key')),
         cert: readFileSync(resolve(__dirname, './certs/server.crt'))
       },
       proxy: {
-        '/': {
+        '/api': {
           target: 'https://localhost:3001',
           changeOrigin: true,
           secure: false
