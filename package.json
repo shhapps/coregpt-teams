@@ -4,8 +4,9 @@
   "version": "1.0.1",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend:watch\"  \"npm run dev:backend\"",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "dev:backend": "NODE_ENV=development tsx watch src/server/index.ts",
+    "dev:frontend": "vite --mode development",
     "dev:frontend:watch": "vite build --watch",
     "start:backend": "PORT=5010 tsx src/server/index.ts",
     "build:frontend": "tsc -b && vite build",
