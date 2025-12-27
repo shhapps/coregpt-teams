@@ -10,7 +10,7 @@ export default defineConfig(async ({ mode }) => {
   const sentryViteConfig = sentryVitePlugin({
     authToken: process.env.SENTRY_AUTH_TOKEN,
     org: 'shhapps-limited-liability-comp',
-    project: 'outlook',
+    project: 'teams-app',
     telemetry: false,
     debug: isDev,
     silent: isDev
