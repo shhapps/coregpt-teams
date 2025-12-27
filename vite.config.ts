@@ -1,3 +1,4 @@
+import { readFileSync } from 'fs'
 import path, { resolve } from 'path'
 
 import { sentryVitePlugin } from '@sentry/vite-plugin'
@@ -19,6 +20,21 @@ export default defineConfig(async ({ mode }) => {
   return {
     plugins: [react(), sentryViteConfig],
     base: '/tabs/home/',
+    server: {
+      port: 5173,
+      strictPort: true,
+      https: {
+        key: readFileSync(resolve(__dirname, './certs/server.key')),
+        cert: readFileSync(resolve(__dirname, './certs/server.crt'))
+      },
+      proxy: {
+        '/': {
+          target: 'https://localhost:3001',
+          changeOrigin: true,
+          secure: false
+        }
+      }
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src')

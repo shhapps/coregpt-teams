@@ -28,8 +28,8 @@
     {
       "entityId": "index0",
       "name": "CoreGPT AI",
-      "contentUrl": "https://localhost:3001/tabs/home",
-      "websiteUrl": "https://localhost:3001/tabs/home",
+      "contentUrl": "https://localhost:5173/tabs/home/",
+      "websiteUrl": "https://localhost:5173/tabs/home/",
       "scopes": ["personal"]
     }
   ],
