@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "Muat ulang"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "Ganti tema",
+    "applicationLanguage": "Bahasa aplikasi",
+    "home": "Beranda",
+    "settings": "Pengaturan",
+    "contactSupport": "Hubungi dukungan"
+  },
+  "aiChat": {
+    "pageTitle": "ASISTEN CHAT GPT",
+    "newChat": "Obrolan baru",
+    "privacyTooltip": "Data Anda tidak pernah dibagikan atau digunakan untuk melatih model AI.",
+    "privacyLearnMore": "Pelajari lebih lanjut",
+    "examples": {
+      "summarize": "Ringkas poin-poin utama dari transkrip rapat ini",
+      "draft": "Buat draf pesan tindak lanjut berdasarkan rapat ini",
+      "extract": "Ambil butir tindakan dan tanggung jawab dari rapat ini",
+      "translate": "Terjemahkan diskusi rapat ini ke bahasa Spanyol",
+      "condense": "Ringkas rangkuman rapat ini menjadi lebih singkat"
+    },
+    "typeMessage": "Tanyakan dengan bebas..."
+  },
+  "trialEndedDialog": {
+    "title": "Batas harian tercapai",
+    "subtitle": "Beri rating aplikasi di store untuk terus menggunakan AI Agent.",
+    "leaveReviewCta": "Tulis ulasan"
+  },
+  "settings": {
+    "title": "Pengaturan"
+  },
+  "drawer": {
+    "support": "Dukungan",
+    "suggestFeature": "Sarankan fitur",
+    "contactUs": "Hubungi kami",
+    "privacyPolicy": "Kebijakan privasi",
+    "termsOfUse": "Ketentuan penggunaan"
+  },
+  "common": {
+    "back": "Kembali"
+  }
+}

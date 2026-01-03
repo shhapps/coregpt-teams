@@ -1,0 +1,153 @@
+.drawerContent {
+    padding-top: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 75vw;
+}
+
+@media (min-width: 1024px) {
+    .drawerContent {
+        max-width: 25vw;
+    }
+}
+
+.drawerHeader {
+    margin-bottom: 5px;
+    display: flex;
+    padding-left: 8px;
+}
+
+.drawerHeader > div > a {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.drawerTitle {
+    font-weight: 550;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    padding-left: 5px;
+    color: var(--accent-10);
+}
+
+.menuIcon {
+    cursor: pointer;
+}
+
+.menuIcon:hover,
+.menuIcon[data-hovered] {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.menuIcon:focus-visible {
+    outline: 2px solid var(--accent-8);
+    outline-offset: 2px;
+}
+
+.closeBtn {
+    position: static !important;
+}
+
+.closeIcon {
+    color: var(--theme-color);
+    cursor: pointer;
+    padding-right: 5px;
+}
+
+.closeBtn:hover,
+.closeBtn[data-hovered] {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.mainContent {
+    font-family: sans-serif;
+    flex: 1;
+    overflow: auto;
+    margin-top: -16px;
+}
+
+.drawerNavLink {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 120ms ease, color 120ms ease;
+}
+
+.drawerNavLink:hover {
+    background: rgba(58, 91, 199, 0.06);
+    color: var(--theme-color);
+}
+
+.drawerNavLinkActive {
+    background: rgba(58, 91, 199, 0.10);
+}
+
+.drawerNavLinkActive,
+.drawerNavLinkActive span {
+    color: var(--theme-color);
+}
+
+.drawerNavLinkActive .drawerNavIcon {
+    color: var(--theme-color);
+}
+
+.drawerNavIcon {
+    flex-shrink: 0;
+}
+
+.drawerNavLink > :global(.rt-Flex) {
+    column-gap: 10px;
+}
+
+.drawerNavLink:focus-visible {
+    outline: 2px solid var(--accent-9);
+    outline-offset: 4px;
+}
+
+.userInfo {
+    padding-bottom: 8px;
+}
+
+.drawerWrapper {
+    height: 100%;
+}
+
+.logoImage {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.userInfoBlock {
+    min-width: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid var(--theme-color);
+    margin-top: 2px;
+}
+
+.userEmail {
+    cursor: pointer;
+}
+

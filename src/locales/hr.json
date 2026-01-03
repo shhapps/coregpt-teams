@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "Ponovno učitaj"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "Promijeni temu",
+    "applicationLanguage": "Jezik aplikacije",
+    "home": "Početna",
+    "settings": "Postavke",
+    "contactSupport": "Kontakt podrška"
+  },
+  "aiChat": {
+    "pageTitle": "GPT CHAT ASISTENT",
+    "newChat": "Novi razgovor",
+    "privacyTooltip": "Vaši se podaci nikad ne dijele niti se koriste za treniranje AI modela.",
+    "privacyLearnMore": "Saznaj više",
+    "examples": {
+      "summarize": "Sažmi ključne točke iz ovog transkripta sastanka",
+      "draft": "Napiši poruke za praćenje na temelju ovog sastanka",
+      "extract": "Izdvoji akcijske stavke i odgovornosti iz ovog sastanka",
+      "translate": "Prevedi ovu raspravu sa sastanka na španjolski",
+      "condense": "Sažmi ovaj osvrt na sastanak u kraći sažetak"
+    },
+    "typeMessage": "Pitaj slobodno..."
+  },
+  "trialEndedDialog": {
+    "title": "Dosegnuto dnevno ograničenje",
+    "subtitle": "Ocijenite aplikaciju u trgovini kako biste nastavili koristiti AI Agent.",
+    "leaveReviewCta": "Ostavi recenziju"
+  },
+  "settings": {
+    "title": "Postavke"
+  },
+  "drawer": {
+    "support": "Podrška",
+    "suggestFeature": "Predloži značajku",
+    "contactUs": "Kontaktirajte nas",
+    "privacyPolicy": "Pravila privatnosti",
+    "termsOfUse": "Uvjeti korištenja"
+  },
+  "common": {
+    "back": "Natrag"
+  }
+}

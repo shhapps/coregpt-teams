@@ -1,12 +1,14 @@
 import { Box, Button, Spinner } from '@radix-ui/themes'
 import { Fragment, useEffect, useRef, useState } from 'react'
 
+import { useButtonTexts } from '@/hooks/useOutsideTranslations.ts'
 import { cssAppColorVarName } from '@/utils/constants.ts'
 
 const Index = () => {
   const loaderRef = useRef<HTMLDivElement | null>(null)
   const [reloadBtn, setReloadBtn] = useState(false)
   const handleReload = () => window.location.reload()
+  const { reloadText } = useButtonTexts()
 
   useEffect(() => {
     setTimeout(function () {
@@ -44,7 +46,7 @@ const Index = () => {
               border: '1px solid white'
             }}
           >
-            Reload
+            {reloadText}
           </Button>
         )}
       </Box>

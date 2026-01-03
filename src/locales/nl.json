@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "Herladen"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "Thema wisselen",
+    "applicationLanguage": "Applicatietaal",
+    "home": "Home",
+    "settings": "Instellingen",
+    "contactSupport": "Contact met support"
+  },
+  "aiChat": {
+    "pageTitle": "GPT CHATASSISTENT",
+    "newChat": "Nieuwe chat",
+    "privacyTooltip": "Je gegevens worden nooit gedeeld of gebruikt om AI-modellen te trainen.",
+    "privacyLearnMore": "Meer informatie",
+    "examples": {
+      "summarize": "Vat de belangrijkste punten uit dit vergaderverslag samen",
+      "draft": "Stel follow-upberichten op op basis van deze vergadering",
+      "extract": "Haal actiepunten en verantwoordelijkheden uit deze vergadering",
+      "translate": "Vertaal deze vergaderdiscussie naar het Spaans",
+      "condense": "Maak dit vergaderverslag korter tot een beknopte samenvatting"
+    },
+    "typeMessage": "Vraag vrijuit..."
+  },
+  "trialEndedDialog": {
+    "title": "Daglimiet bereikt",
+    "subtitle": "Beoordeel de app in de store om AI Agent te blijven gebruiken.",
+    "leaveReviewCta": "Laat een review achter"
+  },
+  "settings": {
+    "title": "Instellingen"
+  },
+  "drawer": {
+    "support": "Support",
+    "suggestFeature": "Stel een functie voor",
+    "contactUs": "Contact",
+    "privacyPolicy": "Privacybeleid",
+    "termsOfUse": "Gebruiksvoorwaarden"
+  },
+  "common": {
+    "back": "Terug"
+  }
+}

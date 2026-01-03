@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "טען מחדש"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "החלף ערכת נושא",
+    "applicationLanguage": "שפת היישום",
+    "home": "בית",
+    "settings": "הגדרות",
+    "contactSupport": "צור קשר עם התמיכה"
+  },
+  "aiChat": {
+    "pageTitle": "עוזר צ'אט GPT",
+    "newChat": "צ'אט חדש",
+    "privacyTooltip": "הנתונים שלך לעולם לא משותפים או משמשים לאימון מודלים של בינה מלאכותית.",
+    "privacyLearnMore": "למידע נוסף",
+    "examples": {
+      "summarize": "סכם את הנקודות המרכזיות מתמלול הפגישה הזה",
+      "draft": "נסח הודעות מעקב על בסיס הפגישה הזו",
+      "extract": "חלץ משימות פעולה ואחריות מתוך הפגישה הזו",
+      "translate": "תרגם את דיון הפגישה הזה לספרדית",
+      "condense": "קצר את סיכום הפגישה הזה לסיכום קצר יותר"
+    },
+    "typeMessage": "שאל בחופשיות..."
+  },
+  "trialEndedDialog": {
+    "title": "הגעת למגבלה היומית",
+    "subtitle": "דרג/י את האפליקציה בחנות כדי להמשיך להשתמש ב‑AI Agent.",
+    "leaveReviewCta": "השאר/י ביקורת"
+  },
+  "settings": {
+    "title": "הגדרות"
+  },
+  "drawer": {
+    "support": "תמיכה",
+    "suggestFeature": "הצע תכונה",
+    "contactUs": "צור קשר",
+    "privacyPolicy": "מדיניות פרטיות",
+    "termsOfUse": "תנאי שימוש"
+  },
+  "common": {
+    "back": "חזרה"
+  }
+}

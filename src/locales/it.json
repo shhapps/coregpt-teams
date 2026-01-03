@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "Ricarica"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "Cambia tema",
+    "applicationLanguage": "Lingua dell'applicazione",
+    "home": "Home",
+    "settings": "Impostazioni",
+    "contactSupport": "Contatta il supporto"
+  },
+  "aiChat": {
+    "pageTitle": "ASSISTENTE DI CHAT GPT",
+    "newChat": "Nuova chat",
+    "privacyTooltip": "I tuoi dati non vengono mai condivisi né usati per addestrare modelli di IA.",
+    "privacyLearnMore": "Scopri di più",
+    "examples": {
+      "summarize": "Riassumi i punti chiave di questa trascrizione della riunione",
+      "draft": "Scrivi messaggi di follow-up basati su questa riunione",
+      "extract": "Estrai elementi d’azione e responsabilità da questa riunione",
+      "translate": "Traduci questa discussione della riunione in spagnolo",
+      "condense": "Condensa questo riepilogo della riunione in un riassunto più breve"
+    },
+    "typeMessage": "Chiedi liberamente..."
+  },
+  "trialEndedDialog": {
+    "title": "Limite giornaliero raggiunto",
+    "subtitle": "Valuta l’app nello store per continuare a usare AI Agent.",
+    "leaveReviewCta": "Lascia una recensione"
+  },
+  "settings": {
+    "title": "Impostazioni"
+  },
+  "drawer": {
+    "support": "Supporto",
+    "suggestFeature": "Suggerisci una funzionalità",
+    "contactUs": "Contattaci",
+    "privacyPolicy": "Informativa sulla privacy",
+    "termsOfUse": "Termini di utilizzo"
+  },
+  "common": {
+    "back": "Indietro"
+  }
+}

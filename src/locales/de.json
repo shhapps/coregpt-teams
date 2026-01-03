@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "Neu laden"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "Design umschalten",
+    "applicationLanguage": "Anwendungssprache",
+    "home": "Startseite",
+    "settings": "Einstellungen",
+    "contactSupport": "Support kontaktieren"
+  },
+  "aiChat": {
+    "pageTitle": "GPT CHAT-ASSISTENT",
+    "newChat": "Neuer Chat",
+    "privacyTooltip": "Deine Daten werden niemals geteilt oder zum Trainieren von KI-Modellen verwendet.",
+    "privacyLearnMore": "Mehr erfahren",
+    "examples": {
+      "summarize": "Fasse die wichtigsten Punkte aus diesem Meeting-Transkript zusammen",
+      "draft": "Entwirf Follow-up-Nachrichten basierend auf diesem Meeting",
+      "extract": "Extrahiere Aufgabenpunkte und Verantwortlichkeiten aus diesem Meeting",
+      "translate": "Übersetze diese Meeting-Diskussion ins Spanische",
+      "condense": "Kürze diese Meeting-Zusammenfassung zu einem kürzeren Überblick"
+    },
+    "typeMessage": "Frag frei..."
+  },
+  "trialEndedDialog": {
+    "title": "Tageslimit erreicht",
+    "subtitle": "Bewerte die App im Store, um AI Agent weiter zu nutzen.",
+    "leaveReviewCta": "Bewertung abgeben"
+  },
+  "settings": {
+    "title": "Einstellungen"
+  },
+  "drawer": {
+    "support": "Support",
+    "suggestFeature": "Funktion vorschlagen",
+    "contactUs": "Kontakt",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "termsOfUse": "Nutzungsbedingungen"
+  },
+  "common": {
+    "back": "Zurück"
+  }
+}

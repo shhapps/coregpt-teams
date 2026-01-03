@@ -1,0 +1,51 @@
+.wrapper {
+    padding: 12px 2px;
+    height: calc(100vh - 130px);
+    overflow: auto;
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--theme-color) transparent;
+}
+
+.pageHeader {
+    margin-bottom: 15px;
+}
+
+.list {
+    border: 1px solid var(--gray-a6);
+    border-radius: 5px;
+    overflow: hidden;
+    background: var(--color-panel);
+    padding: 4px;
+}
+
+.categoryDivider {
+    height: 10px;
+}
+
+.row {
+    padding: 14px 8px;
+}
+
+.rowLink {
+    color: inherit;
+    text-decoration: none;
+}
+
+.rowLink:visited {
+    color: inherit;
+}
+
+.leftCell {
+    min-width: 0;
+}
+
+.leftIcon {
+    flex-shrink: 0;
+    color: var(--theme-color);
+}
+
+.rightCell {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}

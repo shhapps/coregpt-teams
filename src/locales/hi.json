@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "रीलोड करें"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "थीम बदलें",
+    "applicationLanguage": "एप्लिकेशन भाषा",
+    "home": "होम",
+    "settings": "सेटिंग्स",
+    "contactSupport": "सपोर्ट से संपर्क करें"
+  },
+  "aiChat": {
+    "pageTitle": "GPT चैट सहायक",
+    "newChat": "नया चैट",
+    "privacyTooltip": "आपका डेटा कभी साझा नहीं किया जाता और न ही AI मॉडलों को प्रशिक्षित करने के लिए इस्तेमाल होता है।",
+    "privacyLearnMore": "और जानें",
+    "examples": {
+      "summarize": "इस मीटिंग ट्रांसक्रिप्ट के मुख्य बिंदुओं का सारांश दें",
+      "draft": "इस मीटिंग के आधार पर फ़ॉलो‑अप संदेशों का मसौदा बनाएं",
+      "extract": "इस मीटिंग से कार्रवाई बिंदु और जिम्मेदारियाँ निकालें",
+      "translate": "इस मीटिंग चर्चा का स्पेनिश में अनुवाद करें",
+      "condense": "इस मीटिंग रिकैप को और छोटा सारांश बनाएं"
+    },
+    "typeMessage": "बेझिझक पूछें..."
+  },
+  "trialEndedDialog": {
+    "title": "दैनिक सीमा पूरी हो गई",
+    "subtitle": "AI Agent का उपयोग जारी रखने के लिए स्टोर पर ऐप को रेट करें।",
+    "leaveReviewCta": "रेटिंग दें"
+  },
+  "settings": {
+    "title": "सेटिंग्स"
+  },
+  "drawer": {
+    "support": "सहायता",
+    "suggestFeature": "एक फीचर सुझाएं",
+    "contactUs": "संपर्क करें",
+    "privacyPolicy": "गोपनीयता नीति",
+    "termsOfUse": "उपयोग की शर्तें"
+  },
+  "common": {
+    "back": "वापस"
+  }
+}

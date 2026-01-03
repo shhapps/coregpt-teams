@@ -1,0 +1,30 @@
+.searchField {
+  width: 100%;
+  font-size: 12px;
+  position: sticky;
+}
+
+.itemsScroll {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--theme-color) transparent;
+}
+
+.itemsScroll::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.itemsScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.itemsScroll::-webkit-scrollbar-thumb {
+  background-color: var(--theme-color);
+  border-radius: 2px;
+}
+
+.activeItem {
+  background: rgba(58, 91, 199, 0.10);
+  color: var(--gray-12);
+}

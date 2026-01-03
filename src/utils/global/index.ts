@@ -36,3 +36,7 @@ export const retry = async <T>(fn: () => Promise<T>, maxRetries = 3): Promise<T>
     return retry(fn, maxRetries - 1)
   })
 }
+
+export function getUsageMatch(str: string) {
+  return str.match(/__USAGE_DATA__:(.*?)__END__/)
+}
