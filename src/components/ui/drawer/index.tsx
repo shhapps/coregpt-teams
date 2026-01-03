@@ -40,14 +40,16 @@ const Index = () => {
     drawerTermsOfUseText
   } = useDrawerTexts()
 
-  const handleMainContentClick = (mainContent: MainContent) => {
+  const handleMainContentClick = (event: React.MouseEvent, mainContent: MainContent) => {
+    event.preventDefault()
     setDrawerOpen(false)
-    setMainContent(mainContent)
+    setTimeout(() => setMainContent(mainContent), 0)
   }
 
-  const handleSupportClick = () => {
+  const handleSupportClick = (event: React.MouseEvent) => {
+    event.preventDefault()
     setDrawerOpen(false)
-    showWidget()
+    setTimeout(() => showWidget(), 0)
   }
 
   return (
@@ -93,7 +95,7 @@ const Index = () => {
                 className={`${classes.drawerNavLink} ${
                   mainContent === MainContent.appTabs ? classes.drawerNavLinkActive : ''
                 }`}
-                onClick={() => handleMainContentClick(MainContent.appTabs)}
+                onClick={e => handleMainContentClick(e, MainContent.appTabs)}
                 size="5"
                 href="#"
                 truncate
@@ -107,7 +109,7 @@ const Index = () => {
                 className={`${classes.drawerNavLink} ${
                   mainContent === MainContent.settings ? classes.drawerNavLinkActive : ''
                 }`}
-                onClick={() => handleMainContentClick(MainContent.settings)}
+                onClick={e => handleMainContentClick(e, MainContent.settings)}
                 size="5"
                 href="#"
                 truncate
