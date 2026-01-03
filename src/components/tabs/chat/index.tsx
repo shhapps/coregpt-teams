@@ -1,6 +1,6 @@
 import { CheckIcon, CopyIcon, Cross2Icon } from '@radix-ui/react-icons'
-import { Badge, Box, Flex, Grid, IconButton, Text, TextArea, Tooltip } from '@radix-ui/themes'
-import { Bot, CircleArrowUp, CircleStop, SquarePen } from 'lucide-react'
+import { Box, Flex, Grid, IconButton, Link, Text, TextArea, Tooltip } from '@radix-ui/themes'
+import { Bot, CircleArrowUp, CircleStop, ShieldCheck, SquarePen } from 'lucide-react'
 import {
   createRef,
   type FC,
@@ -17,10 +17,19 @@ import { toast } from 'sonner'
 import classes from './chat.module.css'
 
 import useCopy from '@/hooks/useCopy.ts'
-import type { IMessage, IMessageExamples } from '@/interfaces/app.interfaces.ts'
+import { useAiChatTexts } from '@/hooks/useOutsideTranslations.ts'
+import { useStreamChunkProcessor } from '@/hooks/useStreamChunkProcessor.ts'
+import type { IMessage } from '@/interfaces/app.interfaces.ts'
 import { useAppStore } from '@/stores/app.store.ts'
 import { useChatStore } from '@/stores/chat.store.ts'
-import { API_URL, conversationIdHeader, cssThemeColorVarName, LocalStorageKeys, Theme } from '@/utils/constants.ts'
+import {
+  API_URL,
+  conversationIdHeader,
+  cssThemeColorVarName,
+  ExternalLinks,
+  LocalStorageKeys,
+  Theme
+} from '@/utils/constants.ts'
 import { debounce, reloadWithClearing } from '@/utils/global'
 import { sendErrorToSentry } from '@/utils/sentry.ts'
 import { streamAsyncIterable } from '@/utils/streaming.ts'
@@ -30,14 +39,6 @@ interface ICopyBtnProps {
   content: string
   assistantRefs: RefObject<RefObject<HTMLDivElement>[]>
 }
-
-const examples: IMessageExamples[] = [
-  { icon: '🗂️', message: 'Summarize the key points from this meeting transcript' },
-  { icon: '📝', message: 'Draft follow-up messages based on this meeting' },
-  { icon: '🎯', message: 'Extract action items and responsibilities from this meeting' },
-  { icon: '🌐', message: 'Translate this meeting discussion into Spanish' },
-  { icon: '⚡', message: 'Condense this meeting recap into a shorter summary' }
-]
 
 const CopyBtn: FC<ICopyBtnProps> = ({ index, content, assistantRefs }) => {
   const { handleCopy: handleCopyFallback } = useCopy()
@@ -67,7 +68,7 @@ const CopyBtn: FC<ICopyBtnProps> = ({ index, content, assistantRefs }) => {
   }
 
   return (
-    <IconButton onClick={() => handleCopy(index, content)} variant="solid" size="2" className={classes.copyIcon}>
+    <IconButton onClick={() => handleCopy(index, content)} variant="solid" size="1" className={classes.copyIcon}>
       {copied ? <CheckIcon width="12px" height="12px" /> : <CopyIcon width="12px" height="12px" />}
     </IconButton>
   )
@@ -82,13 +83,22 @@ export default function Chat() {
     storeMessages,
     setStoreMessages
   } = useChatStore()
-  const { theme } = useAppStore()
+  const { theme, userInfo, setTrialEndedDialogOpen } = useAppStore()
   const [messages, setMessages] = useState<IMessage[]>(storeMessages)
   const messagesRef = useRef<HTMLDivElement>(null)
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const abortControllerRef = useRef<AbortController>(null)
-
+  const { processNonPromiseChunkStream } = useStreamChunkProcessor()
   const assistantRefs = useRef<RefObject<HTMLDivElement>[]>([])
+  const selectionSentRef = useRef<boolean>(false)
+  const {
+    aiChatPageTitleText,
+    aiChatNewChatText,
+    aiChatPrivacyTooltipText,
+    aiChatPrivacyLearnMoreText,
+    examples,
+    aiChatTypeMessageText
+  } = useAiChatTexts()
 
   useLayoutEffect(() => {
     assistantRefs.current = messages.map((_, i) => assistantRefs.current[i] || createRef<HTMLDivElement>())
@@ -101,9 +111,33 @@ export default function Chat() {
     }
   }
 
+  const getUserScopedLocalStorageKey = (key: LocalStorageKeys) => {
+    const userScopedId = userInfo?.email || localStorage.getItem(LocalStorageKeys.requestId) || 'anon'
+    return `${key}:${userScopedId}`
+  }
+
+  const isLimitBypassed = () =>
+    localStorage.getItem(getUserScopedLocalStorageKey(LocalStorageKeys.limitBypassed)) === '1'
+
+  const getQuestionsCount = () =>
+    Number(localStorage.getItem(getUserScopedLocalStorageKey(LocalStorageKeys.questionsCount)) || '0')
+
+  const setQuestionsCount = (count: number) =>
+    localStorage.setItem(getUserScopedLocalStorageKey(LocalStorageKeys.questionsCount), String(count))
+
+  const QUESTIONS_LIMIT = 20
+
   const handleSend = async () => {
     const userMessage = textAreaRef.current?.value
     if (!userMessage || chatResponseLoading) return
+
+    if (!isLimitBypassed()) {
+      const count = getQuestionsCount()
+      if (count >= QUESTIONS_LIMIT) {
+        setTrialEndedDialogOpen(true)
+        return
+      }
+    }
 
     setMessages(old => [...old, { role: 'user', content: userMessage }])
     textAreaRef.current!.value = ''
@@ -139,13 +173,20 @@ export default function Chat() {
       if (!response.ok) throw new Error((await response.json()).message)
       if (!response.body) throw new Error('Streaming not supported')
 
+      if (!isLimitBypassed()) {
+        const count = getQuestionsCount()
+        setQuestionsCount(count + 1)
+      }
+
       setMessages(old => [...old, { role: 'assistant', content: '' }])
 
       const chatConversationId = response.headers.get(conversationIdHeader)
 
       if (chatConversationId !== conversationId) setConversationId(String(chatConversationId))
 
-      for await (const chunk of streamAsyncIterable(response)) {
+      selectionSentRef.current = true
+
+      const processAnswerChunk = (chunk: string) =>
         setMessages(old => {
           const next = [...old]
           next[next.length - 1] = {
@@ -154,6 +195,9 @@ export default function Chat() {
           }
           return next
         })
+
+      for await (const chunk of streamAsyncIterable(response)) {
+        processNonPromiseChunkStream(chunk, processAnswerChunk)
       }
     } catch (err) {
       const errorMessage = String(err)
@@ -183,6 +227,7 @@ export default function Chat() {
     textAreaRef.current!.value = ''
     setMessages([])
     setConversationId()
+    selectionSentRef.current = false
     textAreaRef.current?.focus()
   }
 
@@ -202,18 +247,41 @@ export default function Chat() {
         <Flex justify="between" align="center">
           <Flex align="center" justify="start" gap="2">
             <IconButton className={classes.chatIcon} variant="ghost">
-              <Bot size="30" />
+              <Bot size="20" />
             </IconButton>
-            <Text size="5" weight="bold" style={{ color: `var(${cssThemeColorVarName})` }}>
-              AI Chat Assistant
+            <Text size="3" weight="bold" style={{ color: `var(${cssThemeColorVarName})` }}>
+              {aiChatPageTitleText}
             </Text>
+            <Tooltip
+              content={
+                <Flex as="span" direction="column" gap="2" className={classes.privacyTooltipContent}>
+                  <Text size="1">
+                    {aiChatPrivacyTooltipText} &nbsp;
+                    <Link
+                      href={ExternalLinks.privacyPolicy}
+                      target="_blank"
+                      rel="noreferrer"
+                      size="1"
+                      underline="always"
+                      className={classes.privacyLearnMoreLink}
+                    >
+                      {aiChatPrivacyLearnMoreText}
+                    </Link>
+                  </Text>
+                </Flex>
+              }
+            >
+              <IconButton variant="ghost" size="1" className={classes.privacyIcon}>
+                <ShieldCheck size="20" />
+              </IconButton>
+            </Tooltip>
           </Flex>
-          <Tooltip content="New Chat">
+          <Tooltip content={aiChatNewChatText}>
             <IconButton
               disabled={chatResponseLoading || !messages.length}
               onClick={handleNewChatClick}
               variant="ghost"
-              size="3"
+              size="1"
               className={classes.newChatIcon}
             >
               <SquarePen size="20" />
@@ -231,7 +299,7 @@ export default function Chat() {
                 className={classes.exampleMessage}
                 key={message}
                 as="span"
-                size="2"
+                size="1"
                 mt={i === 0 ? '4' : '1'}
                 mb="1"
               >
@@ -244,16 +312,11 @@ export default function Chat() {
         {messages.map((message, i) =>
           message.role === 'assistant' ? (
             <Flex justify="start" key={i} my="2" align="start">
-              <Text size="3">
+              <Text size="1">
                 <Box
                   className={`${classes.assistantMessage} ${theme === Theme.light ? classes.light : classes.dark}`}
                   ref={assistantRefs.current[i]}
                 >
-                  {!chatResponseLoading && (
-                    <Badge color="gray" className={classes.aiGeneratedContent}>
-                      AI generated
-                    </Badge>
-                  )}
                   <ReactMarkdown>{message.content}</ReactMarkdown>
                   {!chatResponseLoading && (
                     <CopyBtn index={i} content={message.content} assistantRefs={assistantRefs} />
@@ -264,7 +327,7 @@ export default function Chat() {
           ) : (
             <Flex justify="end" key={i} my="2">
               <Box className={`${classes.userMessage} whitespace-pre-line`}>
-                <Text size="3">{message.content}</Text>
+                <Text size="1">{message.content}</Text>
               </Box>
             </Flex>
           )
@@ -278,8 +341,7 @@ export default function Chat() {
           autoFocus
           ref={textAreaRef}
           rows={4}
-          size="3"
-          placeholder="Ask freely..."
+          placeholder={aiChatTypeMessageText}
         />
         <IconButton
           onClick={handleSendClick}
@@ -289,7 +351,7 @@ export default function Chat() {
           variant="ghost"
           autoFocus
         >
-          {chatResponseLoading ? <CircleStop strokeWidth="1.5" color="red" size="24" /> : <CircleArrowUp size="24" />}
+          {chatResponseLoading ? <CircleStop strokeWidth="1.5" color="red" /> : <CircleArrowUp size="20" />}
         </IconButton>
       </Box>
     </Box>

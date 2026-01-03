@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "重新加载"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "切换主题",
+    "applicationLanguage": "应用语言",
+    "home": "首页",
+    "settings": "设置",
+    "contactSupport": "联系支持"
+  },
+  "aiChat": {
+    "pageTitle": "GPT 聊天助手",
+    "newChat": "新建聊天",
+    "privacyTooltip": "你的数据绝不会被分享，也不会用于训练 AI 模型。",
+    "privacyLearnMore": "了解更多",
+    "examples": {
+      "summarize": "总结这份会议记录/转写的关键要点",
+      "draft": "根据这次会议起草后续跟进消息",
+      "extract": "从这次会议中提取行动项和责任人",
+      "translate": "将这次会议讨论翻译成西班牙语",
+      "condense": "将这份会议回顾压缩成更短的摘要"
+    },
+    "typeMessage": "尽情提问…"
+  },
+  "trialEndedDialog": {
+    "title": "已达到每日上限",
+    "subtitle": "在商店为应用评分以继续使用 AI Agent。",
+    "leaveReviewCta": "留下评价"
+  },
+  "settings": {
+    "title": "设置"
+  },
+  "drawer": {
+    "support": "支持",
+    "suggestFeature": "建议功能",
+    "contactUs": "联系我们",
+    "privacyPolicy": "隐私政策",
+    "termsOfUse": "使用条款"
+  },
+  "common": {
+    "back": "返回"
+  }
+}

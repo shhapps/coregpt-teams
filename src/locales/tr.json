@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "Yenile"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "Temayı değiştir",
+    "applicationLanguage": "Uygulama dili",
+    "home": "Ana sayfa",
+    "settings": "Ayarlar",
+    "contactSupport": "Destek ile iletişime geç"
+  },
+  "aiChat": {
+    "pageTitle": "GPT SOHBET ASİSTANI",
+    "newChat": "Yeni sohbet",
+    "privacyTooltip": "Verileriniz asla paylaşılmaz veya yapay zeka modellerini eğitmek için kullanılmaz.",
+    "privacyLearnMore": "Daha fazla bilgi",
+    "examples": {
+      "summarize": "Bu toplantı dökümünün temel noktalarını özetle",
+      "draft": "Bu toplantıya göre takip mesajları taslakla",
+      "extract": "Bu toplantıdan eylem maddelerini ve sorumlulukları çıkar",
+      "translate": "Bu toplantı tartışmasını İspanyolcaya çevir",
+      "condense": "Bu toplantı özetini daha kısa bir özete indir"
+    },
+    "typeMessage": "Özgürce sor..."
+  },
+  "trialEndedDialog": {
+    "title": "Günlük limite ulaşıldı",
+    "subtitle": "AI Agent’i kullanmaya devam etmek için uygulamayı mağazada değerlendirin.",
+    "leaveReviewCta": "Yorum bırak"
+  },
+  "settings": {
+    "title": "Ayarlar"
+  },
+  "drawer": {
+    "support": "Destek",
+    "suggestFeature": "Özellik öner",
+    "contactUs": "Bize ulaşın",
+    "privacyPolicy": "Gizlilik politikası",
+    "termsOfUse": "Kullanım şartları"
+  },
+  "common": {
+    "back": "Geri"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "Tải lại"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "Chuyển đổi chủ đề",
+    "applicationLanguage": "Ngôn ngữ ứng dụng",
+    "home": "Trang chủ",
+    "settings": "Cài đặt",
+    "contactSupport": "Liên hệ hỗ trợ"
+  },
+  "aiChat": {
+    "pageTitle": "TRỢ LÝ TRÒ CHUYỆN GPT",
+    "newChat": "Cuộc trò chuyện mới",
+    "privacyTooltip": "Dữ liệu của bạn không bao giờ được chia sẻ hoặc dùng để huấn luyện các mô hình AI.",
+    "privacyLearnMore": "Tìm hiểu thêm",
+    "examples": {
+      "summarize": "Tóm tắt các ý chính từ bản ghi cuộc họp này",
+      "draft": "Soạn tin nhắn theo dõi dựa trên cuộc họp này",
+      "extract": "Trích xuất các mục hành động và trách nhiệm từ cuộc họp này",
+      "translate": "Dịch thảo luận cuộc họp này sang tiếng Tây Ban Nha",
+      "condense": "Rút gọn bản tóm tắt cuộc họp này thành bản ngắn hơn"
+    },
+    "typeMessage": "Hỏi thoải mái..."
+  },
+  "trialEndedDialog": {
+    "title": "Đã đạt giới hạn hằng ngày",
+    "subtitle": "Hãy đánh giá ứng dụng trên cửa hàng để tiếp tục sử dụng AI Agent.",
+    "leaveReviewCta": "Để lại đánh giá"
+  },
+  "settings": {
+    "title": "Cài đặt"
+  },
+  "drawer": {
+    "support": "Hỗ trợ",
+    "suggestFeature": "Đề xuất tính năng",
+    "contactUs": "Liên hệ",
+    "privacyPolicy": "Chính sách quyền riêng tư",
+    "termsOfUse": "Điều khoản sử dụng"
+  },
+  "common": {
+    "back": "Quay lại"
+  }
+}

@@ -1,0 +1,130 @@
+import * as Dialog from '@radix-ui/react-dialog'
+import { Box } from '@radix-ui/themes'
+import { AnimatePresence, motion } from 'framer-motion'
+import { type ComponentPropsWithoutRef, forwardRef } from 'react'
+
+import { useAppStore } from '@/stores/app.store'
+
+type ContentProps = ComponentPropsWithoutRef<typeof Dialog.Content> & {
+  origin: 'left' | 'right' | 'top' | 'bottom'
+  size: string | number
+  radius?: number
+  visible?: boolean
+}
+
+const Content = forwardRef<HTMLDivElement, ContentProps>(function ({ style, visible, ...props }, ref) {
+  const { theme } = useAppStore()
+  const sizeChecker = (size: ContentProps['size']) => {
+    if (typeof size === 'string' && !size.includes('%')) {
+      const parsedSize = parseInt(size, 10)
+      return isNaN(parsedSize) ? size : `${parsedSize}px`
+    }
+    return size
+  }
+
+  const calculateSize = (size: ContentProps['size'], dimension: 'width' | 'height') => {
+    if (typeof size === 'string' && size.includes('%')) {
+      const percentage = parseFloat(size) / 100
+      return (dimension === 'width' ? window.innerWidth : window.innerHeight) * percentage
+    }
+    return typeof size === 'number' ? size : parseInt(size, 10)
+  }
+
+  let initial, animate
+  switch (props.origin) {
+    case 'left':
+      initial = { x: -calculateSize(props.size, 'width') }
+      animate = { x: 0 }
+      break
+    case 'right':
+      initial = { x: calculateSize(props.size, 'width') }
+      animate = { x: 0 }
+      break
+    case 'top':
+      initial = { y: -calculateSize(props.size, 'height') }
+      animate = { y: 0 }
+      break
+    case 'bottom':
+      initial = { y: calculateSize(props.size, 'height') }
+      animate = { y: 0 }
+      break
+  }
+
+  return (
+    <AnimatePresence>
+      {visible && (
+        <Dialog.Portal forceMount container={document.body}>
+          <Dialog.Overlay asChild>
+            <motion.div
+              className={`overlay radix-themes ${theme}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.45, ease: 'easeOut' }}
+              style={{
+                backgroundColor: 'var(--black-a6)',
+                position: 'fixed',
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+              }}
+            />
+          </Dialog.Overlay>
+          <Dialog.Content
+            asChild
+            ref={ref}
+            style={{
+              ...style,
+              backgroundColor: 'var(--color-panel-solid, var(--color-background, #fff))',
+              boxShadow: '0 20px 40px var(--black-a9)',
+              overflow: 'auto',
+              position: 'fixed',
+              borderTopLeftRadius:
+                props.radius && (props.origin === 'bottom' || props.origin === 'right') ? 20 : undefined,
+              borderTopRightRadius:
+                props.radius && (props.origin === 'bottom' || props.origin === 'left') ? 20 : undefined,
+              borderBottomLeftRadius:
+                props.radius && (props.origin === 'top' || props.origin === 'right') ? 20 : undefined,
+              borderBottomRightRadius:
+                props.radius && (props.origin === 'top' || props.origin === 'left') ? 20 : undefined,
+              left: props.origin === 'left' ? 0 : undefined,
+              right: props.origin === 'bottom' || props.origin === 'right' || props.origin === 'top' ? 0 : undefined,
+              top: props.origin === 'left' || props.origin === 'right' || props.origin === 'top' ? 0 : undefined,
+              bottom: props.origin === 'bottom' ? 0 : undefined,
+              height: props.origin === 'bottom' || props.origin === 'top' ? sizeChecker(props.size) : '100%',
+              width: props.origin === 'left' || props.origin === 'right' ? sizeChecker(props.size) : '100%'
+            }}
+            {...props}
+          >
+            <Box asChild>
+              <motion.div
+                className={`radix-themes ${theme}`}
+                initial={initial}
+                animate={animate}
+                exit={initial}
+                transition={{ type: 'spring', stiffness: 260, damping: 28, mass: 0.9 }}
+                style={{
+                  backgroundColor: 'var(--color-panel-solid, var(--color-background, #fff))',
+                  minHeight: '100vh',
+                  height: '100%'
+                }}
+              >
+                {props.children}
+              </motion.div>
+            </Box>
+          </Dialog.Content>
+        </Dialog.Portal>
+      )}
+    </AnimatePresence>
+  )
+})
+
+export const Drawer = {
+  Root: Dialog.Root,
+  Trigger: Dialog.Trigger,
+  Title: Dialog.Title,
+  Description: Dialog.Description,
+  Close: Dialog.Close,
+  Content: Content
+}

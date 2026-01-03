@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "Znovu načíst"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "Přepnout motiv",
+    "applicationLanguage": "Jazyk aplikace",
+    "home": "Domů",
+    "settings": "Nastavení",
+    "contactSupport": "Kontaktovat podporu"
+  },
+  "aiChat": {
+    "pageTitle": "ASISTENT CHATU GPT",
+    "newChat": "Nový chat",
+    "privacyTooltip": "Vaše data se nikdy nesdílí ani nepoužívají k trénování modelů AI.",
+    "privacyLearnMore": "Zjistit více",
+    "examples": {
+      "summarize": "Shrň klíčové body z tohoto přepisu schůzky",
+      "draft": "Napiš následné zprávy na základě této schůzky",
+      "extract": "Vytáhni úkoly a odpovědnosti z této schůzky",
+      "translate": "Přelož tuto diskusi ze schůzky do španělštiny",
+      "condense": "Zkrať tento zápis ze schůzky do kratšího shrnutí"
+    },
+    "typeMessage": "Ptejte se volně..."
+  },
+  "trialEndedDialog": {
+    "title": "Dosažen denní limit",
+    "subtitle": "Ohodnoťte aplikaci v obchodě a pokračujte v používání AI Agent.",
+    "leaveReviewCta": "Napsat recenzi"
+  },
+  "settings": {
+    "title": "Nastavení"
+  },
+  "drawer": {
+    "support": "Podpora",
+    "suggestFeature": "Navrhnout funkci",
+    "contactUs": "Kontaktujte nás",
+    "privacyPolicy": "Zásady ochrany soukromí",
+    "termsOfUse": "Podmínky použití"
+  },
+  "common": {
+    "back": "Zpět"
+  }
+}

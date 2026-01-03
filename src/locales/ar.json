@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "إعادة التحميل"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "تبديل السمة",
+    "applicationLanguage": "لغة التطبيق",
+    "home": "الصفحة الرئيسية",
+    "settings": "الإعدادات",
+    "contactSupport": "الاتصال بالدعم"
+  },
+  "aiChat": {
+    "pageTitle": "مساعد دردشة GPT",
+    "newChat": "محادثة جديدة",
+    "privacyTooltip": "لا تتم مشاركة بياناتك مطلقًا ولا تُستخدم لتدريب نماذج الذكاء الاصطناعي.",
+    "privacyLearnMore": "اعرف المزيد",
+    "examples": {
+      "summarize": "لخّص النقاط الرئيسية من نصّ اجتماع مُفرّغ",
+      "draft": "اكتب رسائل متابعة بناءً على هذا الاجتماع",
+      "extract": "استخرج عناصر العمل والمسؤوليات من هذا الاجتماع",
+      "translate": "ترجم هذا النقاش في الاجتماع إلى الإسبانية",
+      "condense": "اختصر هذا ملخص الاجتماع إلى ملخص أقصر"
+    },
+    "typeMessage": "اسأل بحرية..."
+  },
+  "trialEndedDialog": {
+    "title": "تم الوصول إلى الحد اليومي",
+    "subtitle": "قيّم التطبيق في المتجر لمتابعة استخدام AI Agent.",
+    "leaveReviewCta": "اترك تقييماً"
+  },
+  "settings": {
+    "title": "الإعدادات"
+  },
+  "drawer": {
+    "support": "الدعم",
+    "suggestFeature": "اقترح ميزة",
+    "contactUs": "اتصل بنا",
+    "privacyPolicy": "سياسة الخصوصية",
+    "termsOfUse": "شروط الاستخدام"
+  },
+  "common": {
+    "back": "رجوع"
+  }
+}

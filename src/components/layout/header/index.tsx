@@ -1,42 +1,45 @@
-import { Avatar, Box, Card, IconButton, Tooltip } from '@radix-ui/themes'
-import { Moon, Sun } from 'lucide-react'
+import { Button, Card, Flex, IconButton, Link, Tooltip, Text } from '@radix-ui/themes'
+import { Lightbulb, Settings } from 'lucide-react'
 
 import classes from './header.module.css'
 
-import type { IUserInfo } from '@/interfaces/auth.interfaces.ts'
+import Drawer from '@/components/ui/drawer'
+import { useDrawerTexts, useToolTipTexts } from '@/hooks/useOutsideTranslations.ts'
 import { useAppStore } from '@/stores/app.store.ts'
-import { Theme } from '@/utils/constants'
-
-function getAvatarToolTipText(userInfo?: IUserInfo) {
-  const firstName = userInfo?.firstName ? userInfo?.firstName : ''
-  const lastName = userInfo?.lastName ? userInfo?.lastName : ''
-  const namePart = `${firstName?.trim()} ${lastName?.trim()}`.trim()
-  return namePart ? `${namePart} - ${userInfo?.email}` : userInfo?.email
-}
+import { ExternalLinks, MainContent } from '@/utils/constants.ts'
 
 const Header = () => {
-  const { theme, updateTheme, userInfo } = useAppStore()
-
-  const handleThemeClick = () => {
-    if (theme === Theme.dark) updateTheme(Theme.light)
-    if (theme === Theme.light) updateTheme(Theme.dark)
-  }
-
+  const { mainContent, setMainContent } = useAppStore()
+  const { settingsText } = useToolTipTexts()
+  const { drawerSuggestFeatureText } = useDrawerTexts()
   return (
     <Card className={classes.header} asChild>
       <header>
-        <Tooltip content={getAvatarToolTipText(userInfo)}>
-          <IconButton radius="full" size="2" variant="outline">
-            <Avatar variant="soft" radius="full" size="2" fallback={userInfo?.email?.[0] || 'A'} />
-          </IconButton>
-        </Tooltip>
-        <Box className={classes.leftItems}>
-          <Tooltip content="Toggle theme">
-            <IconButton ml="3" onClick={handleThemeClick} variant="outline" size="2">
-              {theme === Theme.dark ? <Sun width="20" height="20" /> : <Moon width="20" height="20" />}
-            </IconButton>
+        <Drawer />
+        <Flex align="center" gap="2">
+          {mainContent !== MainContent.settings && (
+            <Tooltip content={settingsText}>
+              <IconButton
+                onClick={() => setMainContent(MainContent.settings)}
+                className={classes.btn}
+                variant="outline"
+                size="1"
+              >
+                <Settings width={18} height={18} />
+              </IconButton>
+            </Tooltip>
+          )}
+          <Tooltip content={drawerSuggestFeatureText}>
+            <Link href={ExternalLinks.suggestFeatureLink} target="_blank">
+              <Flex align="center" gap="1">
+                <Button variant="classic" size="1">
+                  <Lightbulb width={15} height={15} />
+                  <Text size="2">{drawerSuggestFeatureText}</Text>
+                </Button>
+              </Flex>
+            </Link>
           </Tooltip>
-        </Box>
+        </Flex>
       </header>
     </Card>
   )

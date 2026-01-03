@@ -1,0 +1,44 @@
+{
+  "buttonTexts": {
+    "reload": "再読み込み"
+  },
+  "toolTipTexts": {
+    "toggleTheme": "テーマを切り替え",
+    "applicationLanguage": "アプリの言語",
+    "home": "ホーム",
+    "settings": "設定",
+    "contactSupport": "サポートに連絡"
+  },
+  "aiChat": {
+    "pageTitle": "GPT チャットアシスタント",
+    "newChat": "新しいチャット",
+    "privacyTooltip": "あなたのデータが共有されたり、AI モデルの学習に使用されることはありません。",
+    "privacyLearnMore": "詳細はこちら",
+    "examples": {
+      "summarize": "この会議の文字起こしから要点をまとめて",
+      "draft": "この会議に基づいてフォローアップメッセージを下書きして",
+      "extract": "この会議からアクション項目と担当者を抽出して",
+      "translate": "この会議の議論をスペイン語に翻訳して",
+      "condense": "この会議の振り返りをより短い要約にして"
+    },
+    "typeMessage": "自由に質問してください…"
+  },
+  "trialEndedDialog": {
+    "title": "本日の上限に達しました",
+    "subtitle": "ストアでアプリを評価して、AI Agent の利用を続けてください。",
+    "leaveReviewCta": "レビューを書く"
+  },
+  "settings": {
+    "title": "設定"
+  },
+  "drawer": {
+    "support": "サポート",
+    "suggestFeature": "機能を提案する",
+    "contactUs": "お問い合わせ",
+    "privacyPolicy": "プライバシーポリシー",
+    "termsOfUse": "利用規約"
+  },
+  "common": {
+    "back": "戻る"
+  }
+}
