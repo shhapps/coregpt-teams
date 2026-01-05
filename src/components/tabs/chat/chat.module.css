@@ -124,6 +124,33 @@
 
 .textArea {
     border: 1px solid var(--theme-color) !important;
+    font-size: 16px !important;
+    line-height: 1.6;
+}
+
+.textArea textarea {
+    font-size: 16px !important;
+}
+
+.textArea::placeholder,
+.textArea textarea::placeholder {
+    font-size: 16px !important;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .textArea {
+        font-size: 18px !important;
+    }
+
+    .textArea textarea {
+        font-size: 18px !important;
+    }
+
+    .textArea::placeholder,
+    .textArea textarea::placeholder {
+        font-size: 18px !important;
+    }
 }
 
 .textArea:focus {

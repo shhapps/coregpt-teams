@@ -1,7 +1,6 @@
-import * as teamsJs from '@microsoft/teams-js'
-
 import { useAppStore } from '@/stores/app.store'
 import { getUserData, upsertMicrosoftUser } from '@/utils/axios-utils'
+import { initializeTeams } from '@/utils/teams/teams-utils.ts'
 
 export const useAuthData = () => {
   const { accessToken, userInfo, updateUserInfo, updateAccessToken, requestId } = useAppStore()
@@ -21,8 +20,8 @@ export const useAuthData = () => {
 
     // If not, need to get access token by upserting user
     if (!accessToken) {
-      await teamsJs.app.initialize()
-      const context = await teamsJs.app.getContext()
+      const teamsJsInstant = await initializeTeams()
+      const context = await teamsJsInstant.app.getContext()
       if (context.user) {
         const [firstName, lastName] = Array.isArray(context.user.displayName?.split(' '))
           ? context.user.displayName.split(' ')
