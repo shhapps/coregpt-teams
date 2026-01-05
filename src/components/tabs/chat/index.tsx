@@ -255,13 +255,13 @@ export default function Chat() {
             <Tooltip
               content={
                 <Flex as="span" direction="column" gap="2" className={classes.privacyTooltipContent}>
-                  <Text size="1">
+                  <Text size="2">
                     {aiChatPrivacyTooltipText} &nbsp;
                     <Link
                       href={ExternalLinks.privacyPolicy}
                       target="_blank"
                       rel="noreferrer"
-                      size="1"
+                      size="2"
                       underline="always"
                       className={classes.privacyLearnMoreLink}
                     >
@@ -299,7 +299,7 @@ export default function Chat() {
                 className={classes.exampleMessage}
                 key={message}
                 as="span"
-                size="1"
+                size="2"
                 mt={i === 0 ? '4' : '1'}
                 mb="1"
               >
@@ -312,7 +312,7 @@ export default function Chat() {
         {messages.map((message, i) =>
           message.role === 'assistant' ? (
             <Flex justify="start" key={i} my="2" align="start">
-              <Text size="1">
+              <Text size="2">
                 <Box
                   className={`${classes.assistantMessage} ${theme === Theme.light ? classes.light : classes.dark}`}
                   ref={assistantRefs.current[i]}
@@ -327,7 +327,7 @@ export default function Chat() {
           ) : (
             <Flex justify="end" key={i} my="2">
               <Box className={`${classes.userMessage} whitespace-pre-line`}>
-                <Text size="1">{message.content}</Text>
+                <Text size="2">{message.content}</Text>
               </Box>
             </Flex>
           )
@@ -351,7 +351,7 @@ export default function Chat() {
           variant="ghost"
           autoFocus
         >
-          {chatResponseLoading ? <CircleStop strokeWidth="1.5" color="red" /> : <CircleArrowUp size="20" />}
+          {chatResponseLoading ? <CircleStop size="24" strokeWidth="1.5" color="red" /> : <CircleArrowUp size="24" />}
         </IconButton>
       </Box>
     </Box>
