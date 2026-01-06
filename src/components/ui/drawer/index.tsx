@@ -18,7 +18,7 @@ import { useFeaturebase } from '@/hooks/useFeaturebase.ts'
 import { useDrawerTexts, useToolTipTexts } from '@/hooks/useOutsideTranslations.ts'
 import type { IUserInfo } from '@/interfaces/auth.interfaces.ts'
 import { useAppStore } from '@/stores/app.store.ts'
-import { baseAppName, ExternalLinks, MainContent } from '@/utils/constants.ts'
+import { ExternalLinks, MainContent } from '@/utils/constants.ts'
 import { LogoImage } from '@/utils/global/files.ts'
 
 function getAvatarToolTipText(userInfo?: IUserInfo) {
@@ -72,11 +72,11 @@ const Index = () => {
                     fallback={<img className={classes.logoImage} src={LogoImage} alt="logo" />}
                   />
                 </IconButton>
-                <Drawer.Title asChild>
-                  <Text size="4" className={classes.drawerTitle} weight="medium">
-                    {baseAppName}
-                  </Text>
-                </Drawer.Title>
+                {/*<Drawer.Title asChild>*/}
+                {/*  <Text size="4" className={classes.drawerTitle} weight="medium">*/}
+                {/*    {baseAppName}*/}
+                {/*  </Text>*/}
+                {/*</Drawer.Title>*/}
               </Link>
             </Flex>
             <Drawer.Close asChild>
