@@ -37,7 +37,7 @@ const Index = () => {
     localStorage.setItem(getUserScopedLocalStorageKey(LocalStorageKeys.limitBypassed), '1')
     cancelUnlock()
     setTrialEndedDialogOpen(false)
-    void sendAppNotification({ userInfo, applicationLanguage, message: 'Review dialog bypassed.' })
+    void sendAppNotification({ userInfo, applicationLanguage, message: 'Teams review dialog bypassed.' })
   }
 
   const handleLeaveReview = () => {
