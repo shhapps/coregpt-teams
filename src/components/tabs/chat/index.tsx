@@ -125,7 +125,7 @@ export default function Chat() {
   const setQuestionsCount = (count: number) =>
     localStorage.setItem(getUserScopedLocalStorageKey(LocalStorageKeys.questionsCount), String(count))
 
-  const QUESTIONS_LIMIT = 20
+  const QUESTIONS_LIMIT = 50
 
   const handleSend = async () => {
     const userMessage = textAreaRef.current?.value

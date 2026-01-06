@@ -6,10 +6,11 @@ import classes from './trial-ended-dialog.module.css'
 
 import { useTrialEndedDialogTexts } from '@/hooks/useOutsideTranslations.ts'
 import { useAppStore } from '@/stores/app.store.ts'
+import { sendAppNotification } from '@/utils/axios-utils.ts'
 import { ExternalLinks, LocalStorageKeys } from '@/utils/constants.ts'
 
 const Index = () => {
-  const { trialEndedDialogOpen, setTrialEndedDialogOpen, userInfo } = useAppStore()
+  const { trialEndedDialogOpen, setTrialEndedDialogOpen, userInfo, applicationLanguage } = useAppStore()
   const { trialEndedDialogTitleText, trialEndedDialogLeaveReviewCtaText, trialEndedDialogSubtitleKey } =
     useTrialEndedDialogTexts()
 
@@ -36,6 +37,7 @@ const Index = () => {
     localStorage.setItem(getUserScopedLocalStorageKey(LocalStorageKeys.limitBypassed), '1')
     cancelUnlock()
     setTrialEndedDialogOpen(false)
+    void sendAppNotification({ userInfo, applicationLanguage, message: 'Review dialog bypassed.' })
   }
 
   const handleLeaveReview = () => {
