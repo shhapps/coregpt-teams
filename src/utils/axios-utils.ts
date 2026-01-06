@@ -1,8 +1,9 @@
 import axios, { AxiosError } from 'axios'
 
 import type { IApiAuthUser, IApiUser, IUpsertMicrosoftUser } from '@/interfaces/api.interfaces'
-import { API_URL, LocalStorageKeys } from '@/utils/constants'
+import { API_URL, apiAppName, LocalStorageKeys } from '@/utils/constants'
 import { reloadWithClearing } from '@/utils/global'
+import { sendErrorToSentry } from '@/utils/sentry.ts'
 
 const axiosInstance = axios.create({ baseURL: API_URL })
 
@@ -54,6 +55,28 @@ export const upsertMicrosoftUser = async (params: IUpsertMicrosoftUser): Promise
   } catch (e) {
     console.error('Error while upserting Microsoft user: ', e)
     throw e
+  }
+}
+
+/**
+ * Send app notification
+ */
+export const sendAppNotification = async (data: object): Promise<void> => {
+  try {
+    const accessToken = localStorage.getItem(LocalStorageKeys.accessToken)
+    await axiosInstance.post<void>(
+      `/notifications/app-notification`,
+      { app: apiAppName, data },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken as string}`
+        }
+      }
+    )
+  } catch (e) {
+    console.error('Error while sending app notification: ', e)
+    sendErrorToSentry(e)
+    return
   }
 }
 
