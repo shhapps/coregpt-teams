@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "GPT チャットアシスタント",
     "newChat": "新しいチャット",
+    "aiGenerated": "AI によって生成",
     "privacyTooltip": "あなたのデータが共有されたり、AI モデルの学習に使用されることはありません。",
     "privacyLearnMore": "詳細はこちら",
     "examples": {

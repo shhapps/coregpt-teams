@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "GPT 聊天助手",
     "newChat": "新建聊天",
+    "aiGenerated": "AI 生成",
     "privacyTooltip": "你的数据绝不会被分享，也不会用于训练 AI 模型。",
     "privacyLearnMore": "了解更多",
     "examples": {

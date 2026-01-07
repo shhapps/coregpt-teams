@@ -1,5 +1,5 @@
 import { CheckIcon, CopyIcon, Cross2Icon } from '@radix-ui/react-icons'
-import { Box, Flex, Grid, IconButton, Link, Text, TextArea, Tooltip } from '@radix-ui/themes'
+import { Badge, Box, Flex, Grid, IconButton, Link, Text, TextArea, Tooltip } from '@radix-ui/themes'
 import { Bot, CircleArrowUp, CircleStop, ShieldCheck, SquarePen } from 'lucide-react'
 import {
   createRef,
@@ -97,6 +97,7 @@ export default function Chat() {
     aiChatPrivacyTooltipText,
     aiChatPrivacyLearnMoreText,
     examples,
+    aiChatAiGeneratedText,
     aiChatTypeMessageText
   } = useAiChatTexts()
 
@@ -317,6 +318,11 @@ export default function Chat() {
                   className={`${classes.assistantMessage} ${theme === Theme.light ? classes.light : classes.dark}`}
                   ref={assistantRefs.current[i]}
                 >
+                  {!chatResponseLoading && (
+                    <Badge color="gray" className={classes.aiGeneratedContent}>
+                      {aiChatAiGeneratedText}
+                    </Badge>
+                  )}
                   <ReactMarkdown>{message.content}</ReactMarkdown>
                   {!chatResponseLoading && (
                     <CopyBtn index={i} content={message.content} assistantRefs={assistantRefs} />

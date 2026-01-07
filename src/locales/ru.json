@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "GPT ЧАТ-ПОМОЩНИК",
     "newChat": "Новый чат",
+    "aiGenerated": "Сгенерировано ИИ",
     "privacyTooltip": "Ваши данные никогда не передаются и не используются для обучения моделей ИИ.",
     "privacyLearnMore": "Узнать больше",
     "examples": {

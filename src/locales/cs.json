@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "ASISTENT CHATU GPT",
     "newChat": "Nový chat",
+    "aiGenerated": "Vygenerováno pomocí AI",
     "privacyTooltip": "Vaše data se nikdy nesdílí ani nepoužívají k trénování modelů AI.",
     "privacyLearnMore": "Zjistit více",
     "examples": {

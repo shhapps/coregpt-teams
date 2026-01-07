@@ -97,6 +97,7 @@ export const useAiChatTexts = () => {
       aiChatNewChatText: t(LocalesKeys.aiChatNewChat),
       aiChatPrivacyTooltipText: t(LocalesKeys.aiChatPrivacyTooltip),
       aiChatPrivacyLearnMoreText: t(LocalesKeys.aiChatPrivacyLearnMore),
+      aiChatAiGeneratedText: t(LocalesKeys.aiChatAiGenerated),
       examples,
       aiChatTypeMessageText: t(LocalesKeys.aiChatTypeMessage)
     }),
