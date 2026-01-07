@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "GPT CHATASSISTENT",
     "newChat": "Nieuwe chat",
+    "aiGenerated": "Door AI gegenereerd",
     "privacyTooltip": "Je gegevens worden nooit gedeeld of gebruikt om AI-modellen te trainen.",
     "privacyLearnMore": "Meer informatie",
     "examples": {

@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "GPT 채팅 도우미",
     "newChat": "새 채팅",
+    "aiGenerated": "AI 생성",
     "privacyTooltip": "사용자 데이터는 절대 공유되거나 AI 모델 학습에 사용되지 않습니다.",
     "privacyLearnMore": "자세히 알아보기",
     "examples": {

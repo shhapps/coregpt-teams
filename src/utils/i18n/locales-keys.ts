@@ -9,6 +9,7 @@ export enum LocalesKeys {
   aiChatNewChat = 'aiChat.newChat',
   aiChatPrivacyTooltip = 'aiChat.privacyTooltip',
   aiChatPrivacyLearnMore = 'aiChat.privacyLearnMore',
+  aiChatAiGenerated = 'aiChat.aiGenerated',
   aiChatExampleSummarize = 'aiChat.examples.summarize',
   aiChatExampleDraft = 'aiChat.examples.draft',
   aiChatExampleExtract = 'aiChat.examples.extract',

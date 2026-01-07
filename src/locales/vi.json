@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "TRỢ LÝ TRÒ CHUYỆN GPT",
     "newChat": "Cuộc trò chuyện mới",
+    "aiGenerated": "Do AI tạo ra",
     "privacyTooltip": "Dữ liệu của bạn không bao giờ được chia sẻ hoặc dùng để huấn luyện các mô hình AI.",
     "privacyLearnMore": "Tìm hiểu thêm",
     "examples": {

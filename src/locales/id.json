@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "ASISTEN CHAT GPT",
     "newChat": "Obrolan baru",
+    "aiGenerated": "Dihasilkan oleh AI",
     "privacyTooltip": "Data Anda tidak pernah dibagikan atau digunakan untuk melatih model AI.",
     "privacyLearnMore": "Pelajari lebih lanjut",
     "examples": {

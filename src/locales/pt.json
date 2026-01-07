@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "ASSISTENTE DE CHAT GPT",
     "newChat": "Novo chat",
+    "aiGenerated": "Gerado por IA",
     "privacyTooltip": "Os seus dados nunca são partilhados nem usados para treinar modelos de IA.",
     "privacyLearnMore": "Saiba mais",
     "examples": {

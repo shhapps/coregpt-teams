@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "GPT CHAT ASISTENT",
     "newChat": "Novi razgovor",
+    "aiGenerated": "Generirano pomoću AI",
     "privacyTooltip": "Vaši se podaci nikad ne dijele niti se koriste za treniranje AI modela.",
     "privacyLearnMore": "Saznaj više",
     "examples": {

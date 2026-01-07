@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "עוזר צ'אט GPT",
     "newChat": "צ'אט חדש",
+    "aiGenerated": "נוצר על ידי בינה מלאכותית",
     "privacyTooltip": "הנתונים שלך לעולם לא משותפים או משמשים לאימון מודלים של בינה מלאכותית.",
     "privacyLearnMore": "למידע נוסף",
     "examples": {

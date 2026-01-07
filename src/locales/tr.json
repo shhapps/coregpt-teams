@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "GPT SOHBET ASİSTANI",
     "newChat": "Yeni sohbet",
+    "aiGenerated": "Yapay zeka tarafından oluşturuldu",
     "privacyTooltip": "Verileriniz asla paylaşılmaz veya yapay zeka modellerini eğitmek için kullanılmaz.",
     "privacyLearnMore": "Daha fazla bilgi",
     "examples": {

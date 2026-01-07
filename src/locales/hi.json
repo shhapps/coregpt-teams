@@ -12,6 +12,7 @@
   "aiChat": {
     "pageTitle": "GPT चैट सहायक",
     "newChat": "नया चैट",
+    "aiGenerated": "AI द्वारा जनित",
     "privacyTooltip": "आपका डेटा कभी साझा नहीं किया जाता और न ही AI मॉडलों को प्रशिक्षित करने के लिए इस्तेमाल होता है।",
     "privacyLearnMore": "और जानें",
     "examples": {
