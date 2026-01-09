@@ -5,7 +5,7 @@ export const {
   MODE
 } = import.meta.env
 
-export const appName = 'ChatGPT AI MeetSync'
+export const appName = 'CoreGPT AI MeetSync'
 export const baseAppName = 'CoreGPT'
 
 export const apiAppName = 'Teams'
