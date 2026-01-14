@@ -22,7 +22,7 @@
       "translate": "이 회의 논의를 스페인어로 번역해줘",
       "condense": "이 회의 요약을 더 짧게 줄여줘"
     },
-    "typeMessage": "자유롭게 질문하세요..."
+    "typeMessage": "무엇이든 질문하세요..."
   },
   "trialEndedDialog": {
     "title": "일일 제한에 도달했습니다",

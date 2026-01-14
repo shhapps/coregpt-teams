@@ -22,7 +22,7 @@
       "translate": "Traduce esta conversación de la reunión al español",
       "condense": "Condensa este resumen de la reunión en uno más breve"
     },
-    "typeMessage": "Pregunta libremente..."
+    "typeMessage": "Pregunta cualquier cosa..."
   },
   "trialEndedDialog": {
     "title": "Límite diario alcanzado",
