@@ -22,7 +22,7 @@
       "translate": "Translate this meeting discussion into Spanish",
       "condense": "Condense this meeting recap into a shorter summary"
     },
-    "typeMessage": "Ask freely..."
+    "typeMessage": "Ask anything..."
   },
   "trialEndedDialog": {
     "title": "Daily Limit Reached",

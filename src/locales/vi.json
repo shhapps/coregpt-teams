@@ -22,7 +22,7 @@
       "translate": "Dịch thảo luận cuộc họp này sang tiếng Tây Ban Nha",
       "condense": "Rút gọn bản tóm tắt cuộc họp này thành bản ngắn hơn"
     },
-    "typeMessage": "Hỏi thoải mái..."
+    "typeMessage": "Hỏi bất cứ điều gì..."
   },
   "trialEndedDialog": {
     "title": "Đã đạt giới hạn hằng ngày",

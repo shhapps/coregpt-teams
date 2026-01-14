@@ -22,7 +22,7 @@
       "translate": "この会議の議論をスペイン語に翻訳して",
       "condense": "この会議の振り返りをより短い要約にして"
     },
-    "typeMessage": "自由に質問してください…"
+    "typeMessage": "何でも質問してください…"
   },
   "trialEndedDialog": {
     "title": "本日の上限に達しました",

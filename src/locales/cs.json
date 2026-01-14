@@ -22,7 +22,7 @@
       "translate": "Přelož tuto diskusi ze schůzky do španělštiny",
       "condense": "Zkrať tento zápis ze schůzky do kratšího shrnutí"
     },
-    "typeMessage": "Ptejte se volně..."
+    "typeMessage": "Ptejte se na cokoli..."
   },
   "trialEndedDialog": {
     "title": "Dosažen denní limit",

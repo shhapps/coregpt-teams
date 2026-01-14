@@ -113,6 +113,33 @@
 .input {
     flex-shrink: 0;
     position: relative;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.input:focus-within {
+    border-color: var(--theme-color);
+}
+
+.input *:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.input *:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.input :global(.rt-TextAreaInput:focus),
+.input :global(.rt-TextAreaInput:focus-visible),
+.input :global(.rt-TextAreaRoot:focus-within),
+.input :global(.rt-TextAreaRoot[data-focus]),
+.input :global(.rt-TextAreaRoot[data-focused]),
+.input :global(.rt-TextAreaRoot[data-state='open']) {
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 .selection {
@@ -153,6 +180,8 @@
 @media (min-width: 768px) {
     .textArea {
         font-size: 15px !important;
+        border: none !important;
+        box-shadow: none !important;
     }
 
     .textArea textarea {
@@ -163,10 +192,23 @@
     .textArea textarea::placeholder {
         font-size: 15px !important;
     }
+
+    .textArea:focus {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+
+.textArea {
+    border: none !important;
+    box-shadow: none !important;
 }
 
 .textArea:focus {
-    border: none;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .sendBtn {

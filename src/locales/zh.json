@@ -22,7 +22,7 @@
       "translate": "将这次会议讨论翻译成西班牙语",
       "condense": "将这份会议回顾压缩成更短的摘要"
     },
-    "typeMessage": "尽情提问…"
+    "typeMessage": "问任何事…"
   },
   "trialEndedDialog": {
     "title": "已达到每日上限",

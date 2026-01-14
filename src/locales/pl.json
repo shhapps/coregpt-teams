@@ -22,7 +22,7 @@
       "translate": "Przetłumacz tę dyskusję ze spotkania na hiszpański",
       "condense": "Skróć to podsumowanie spotkania do krótszej wersji"
     },
-    "typeMessage": "Pytaj swobodnie..."
+    "typeMessage": "Pytaj o cokolwiek..."
   },
   "trialEndedDialog": {
     "title": "Osiągnięto dzienny limit",

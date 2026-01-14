@@ -22,7 +22,7 @@
       "translate": "Übersetze diese Meeting-Diskussion ins Spanische",
       "condense": "Kürze diese Meeting-Zusammenfassung zu einem kürzeren Überblick"
     },
-    "typeMessage": "Frag frei..."
+    "typeMessage": "Frag alles..."
   },
   "trialEndedDialog": {
     "title": "Tageslimit erreicht",
