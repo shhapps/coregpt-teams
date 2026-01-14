@@ -29,6 +29,7 @@ export enum LocalesKeys {
   drawerSupport = 'drawer.support',
   drawerSuggestFeature = 'drawer.suggestFeature',
   drawerContactUs = 'drawer.contactUs',
+  drawerHelp = 'drawer.help',
   drawerPrivacyPolicy = 'drawer.privacyPolicy',
   drawerTermsOfUse = 'drawer.termsOfUse',
 
