@@ -8,7 +8,8 @@ import {
   ShieldCheck,
   MessageCircleMore,
   Lightbulb,
-  Settings
+  Settings,
+  HelpCircle
 } from 'lucide-react'
 
 import { Drawer } from './base-drawer'
@@ -36,6 +37,7 @@ const Index = () => {
     drawerSupportText,
     drawerSuggestFeatureText,
     drawerContactUsText,
+    drawerHelpText,
     drawerPrivacyPolicyText,
     drawerTermsOfUseText
   } = useDrawerTexts()
@@ -149,6 +151,19 @@ const Index = () => {
                 <Flex align="center" gap="2">
                   <Mail className={classes.drawerNavIcon} width={18} height={18} />
                   <Text as="span">{drawerContactUsText}</Text>
+                </Flex>
+              </Link>
+              <Link
+                onClick={() => setDrawerOpen(false)}
+                className={classes.drawerNavLink}
+                size="5"
+                href={ExternalLinks.helpLink}
+                truncate
+                target="_blank"
+              >
+                <Flex align="center" gap="2">
+                  <HelpCircle className={classes.drawerNavIcon} width={18} height={18} />
+                  <Text as="span">{drawerHelpText}</Text>
                 </Flex>
               </Link>
               <Link

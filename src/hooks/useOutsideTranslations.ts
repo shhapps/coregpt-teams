@@ -62,6 +62,7 @@ export const useDrawerTexts = () => {
       drawerSupportText: t(LocalesKeys.drawerSupport),
       drawerSuggestFeatureText: t(LocalesKeys.drawerSuggestFeature),
       drawerContactUsText: t(LocalesKeys.drawerContactUs),
+      drawerHelpText: t(LocalesKeys.drawerHelp),
       drawerPrivacyPolicyText: t(LocalesKeys.drawerPrivacyPolicy),
       drawerTermsOfUseText: t(LocalesKeys.drawerTermsOfUse)
     }),

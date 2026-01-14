@@ -21,7 +21,8 @@ export enum ExternalLinks {
   privacyPolicy = 'https://shhapps.com/privacy-policy',
   coregptAppsMainPage = 'https://coregptapps.com',
   suggestFeatureLink = 'https://chatgptaiteams.userjot.com',
-  appReviewPage = 'https://marketplace.microsoft.com/en-us/product/office/WA200009757?tab=Reviews'
+  appReviewPage = 'https://marketplace.microsoft.com/en-us/product/office/WA200009757?tab=Reviews',
+  helpLink = 'https://help.coregptapps.com'
 }
 
 export enum Theme {
