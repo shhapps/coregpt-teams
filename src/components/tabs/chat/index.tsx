@@ -235,7 +235,7 @@ export default function Chat() {
   useLayoutEffect(() => {
     const el = messagesRef.current
     if (!el) return
-    el.scrollTop = el.scrollHeight
+    requestAnimationFrame(() => (el.scrollTop = el.scrollHeight))
   }, [messages])
 
   useEffect(() => {
