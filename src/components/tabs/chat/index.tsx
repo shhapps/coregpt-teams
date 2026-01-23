@@ -346,7 +346,7 @@ export default function Chat() {
           onKeyDown={handleKeyDown}
           autoFocus
           ref={textAreaRef}
-          rows={4}
+          rows={5}
           placeholder={aiChatTypeMessageText}
         />
         <IconButton

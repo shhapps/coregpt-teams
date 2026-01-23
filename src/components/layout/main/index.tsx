@@ -3,7 +3,6 @@ import { lazy, useEffect } from 'react'
 
 import classes from './main.module.css'
 
-import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
 import LazyRetry from '@/components/ui/lazy-retry'
 import Loader from '@/components/ui/loader'
@@ -45,9 +44,6 @@ const Index = () => {
           {mainContent === MainContent.appTabs && <AppTabs />}
           {mainContent === MainContent.settings && <Settings />}
         </main>
-      </Box>
-      <Box asChild>
-        <Footer />
       </Box>
     </Box>
   )

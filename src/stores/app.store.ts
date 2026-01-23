@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 
-import type { IBackdrop, ISnackbarProps } from '@/interfaces/app.interfaces'
+import type { ISnackbarProps } from '@/interfaces/app.interfaces'
 import type { IUserInfo } from '@/interfaces/auth.interfaces'
 import { LocalStorageKeys, MainContent, StoreNames, Theme } from '@/utils/constants'
 import { getStoreName } from '@/utils/global'
@@ -11,8 +11,6 @@ export interface IAppState {
   requestId: string
   theme: Theme
   updateTheme: (newTheme: Theme) => void
-  backdrop?: IBackdrop
-  setBackdrop: (backdrop: IBackdrop) => void
   snackbar?: ISnackbarProps
   setSnackbar: (data: ISnackbarProps) => void
   accessToken?: string
@@ -39,11 +37,6 @@ export const useAppStore = create<IAppState>()(
       updateTheme: (newTheme: Theme) => {
         localStorage.setItem(LocalStorageKeys.theme, newTheme)
         set({ theme: newTheme })
-      },
-      backdrop: { open: false, closeOnClick: true },
-      setBackdrop: (backdrop: IBackdrop) => {
-        if (backdrop.closeOnClick !== false) set({ backdrop: { open: backdrop.open, closeOnClick: true } })
-        else set({ backdrop: { open: backdrop.open, closeOnClick: backdrop.closeOnClick } })
       },
       snackbar: { open: false },
       setSnackbar: snackbar => set({ snackbar }),
