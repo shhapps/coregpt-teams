@@ -8,7 +8,6 @@ import '@/styles/global.css'
 import ErrorBoundary from '@/components/ui/error-boundary'
 import LazyRetry from '@/components/ui/lazy-retry'
 import Loader from '@/components/ui/loader'
-import LoaderBackdrop from '@/components/ui/loader-backdrop'
 import MessageSnackbar from '@/components/ui/message-snackbar'
 import TrialEndedDialog from '@/components/ui/trial-ended-dialog'
 import { useAppStore } from '@/stores/app.store.ts'
@@ -24,7 +23,6 @@ const AppContent = () => {
         <Suspense fallback={<Loader />}>
           <Main />
         </Suspense>
-        <LoaderBackdrop />
         <MessageSnackbar />
         <TrialEndedDialog />
       </I18nextProvider>

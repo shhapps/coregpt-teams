@@ -1,14 +1,5 @@
 import type { JSX, ReactNode } from 'react'
 
-export interface IOfficeInitialized {
-  isOfficeInitialized: boolean
-}
-
-export interface IBackdrop {
-  open: boolean
-  closeOnClick?: boolean
-}
-
 export type SnackbarSeverity = 'info' | 'success' | 'warning' | 'error'
 
 export interface ISnackbarProps {
