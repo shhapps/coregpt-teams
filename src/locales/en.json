@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "Back"
+  },
+  "langChange": {
+    "searchLanguage": "Search language...",
+    "noLanguagesFound": "No languages found"
   }
 }

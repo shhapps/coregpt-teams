@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "返回"
+  },
+  "langChange": {
+    "searchLanguage": "搜索语言...",
+    "noLanguagesFound": "未找到语言"
   }
 }

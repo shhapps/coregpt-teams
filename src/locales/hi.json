@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "वापस"
+  },
+  "langChange": {
+    "searchLanguage": "भाषा खोजें...",
+    "noLanguagesFound": "कोई भाषा नहीं मिली"
   }
 }

@@ -34,5 +34,9 @@ export enum LocalesKeys {
   drawerTermsOfUse = 'drawer.termsOfUse',
 
   /* Common */
-  commonBack = 'common.back'
+  commonBack = 'common.back',
+
+  /* Lang Change */
+  langChangeSearchLanguage = 'langChange.searchLanguage',
+  langChangeNoLanguagesFound = 'langChange.noLanguagesFound'
 }

@@ -4,7 +4,7 @@ import { Lightbulb, Settings } from 'lucide-react'
 import classes from './header.module.css'
 
 import Drawer from '@/components/ui/drawer'
-import { useDrawerTexts, useToolTipTexts } from '@/hooks/useOutsideTranslations.ts'
+import { useDrawerTexts, useToolTipTexts } from '@/hooks/use-outside-translations.ts'
 import { useAppStore } from '@/stores/app.store.ts'
 import { ExternalLinks, MainContent } from '@/utils/constants.ts'
 

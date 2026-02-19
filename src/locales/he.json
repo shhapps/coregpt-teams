@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "חזרה"
+  },
+  "langChange": {
+    "searchLanguage": "חפש שפה...",
+    "noLanguagesFound": "לא נמצאו שפות"
   }
 }

@@ -16,9 +16,9 @@ import { toast } from 'sonner'
 
 import classes from './chat.module.css'
 
-import useCopy from '@/hooks/useCopy.ts'
-import { useAiChatTexts } from '@/hooks/useOutsideTranslations.ts'
-import { useStreamChunkProcessor } from '@/hooks/useStreamChunkProcessor.ts'
+import useCopy from '@/hooks/use-copy.ts'
+import { useAiChatTexts } from '@/hooks/use-outside-translations.ts'
+import { useStreamChunkProcessor } from '@/hooks/use-stream-chunk-processor.ts'
 import type { IMessage } from '@/interfaces/app.interfaces.ts'
 import { useAppStore } from '@/stores/app.store.ts'
 import { useChatStore } from '@/stores/chat.store.ts'

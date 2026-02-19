@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "Zpět"
+  },
+  "langChange": {
+    "searchLanguage": "Hledat jazyk...",
+    "noLanguagesFound": "Žádné jazyky nenalezeny"
   }
 }

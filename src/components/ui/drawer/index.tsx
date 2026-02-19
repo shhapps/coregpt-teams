@@ -15,8 +15,8 @@ import {
 import { Drawer } from './base-drawer'
 import classes from './drawer.module.css'
 
-import { useFeaturebase } from '@/hooks/useFeaturebase.ts'
-import { useDrawerTexts, useToolTipTexts } from '@/hooks/useOutsideTranslations.ts'
+import { useFeaturebase } from '@/hooks/use-featurebase.ts'
+import { useDrawerTexts, useToolTipTexts } from '@/hooks/use-outside-translations.ts'
 import type { IUserInfo } from '@/interfaces/auth.interfaces.ts'
 import { useAppStore } from '@/stores/app.store.ts'
 import { ExternalLinks, MainContent } from '@/utils/constants.ts'

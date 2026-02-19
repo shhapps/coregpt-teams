@@ -4,7 +4,7 @@ import { Trans } from 'react-i18next'
 
 import classes from './trial-ended-dialog.module.css'
 
-import { useTrialEndedDialogTexts } from '@/hooks/useOutsideTranslations.ts'
+import { useTrialEndedDialogTexts } from '@/hooks/use-outside-translations.ts'
 import { useAppStore } from '@/stores/app.store.ts'
 import { sendAppNotification } from '@/utils/axios-utils.ts'
 import { ExternalLinks, LocalStorageKeys } from '@/utils/constants.ts'

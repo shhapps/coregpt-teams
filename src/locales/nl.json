@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "Terug"
+  },
+  "langChange": {
+    "searchLanguage": "Taal zoeken...",
+    "noLanguagesFound": "Geen talen gevonden"
   }
 }

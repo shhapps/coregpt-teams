@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "رجوع"
+  },
+  "langChange": {
+    "searchLanguage": "ابحث عن لغة...",
+    "noLanguagesFound": "لم يتم العثور على لغات"
   }
 }

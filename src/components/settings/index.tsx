@@ -5,7 +5,7 @@ import classes from './settings.module.css'
 
 import BackBtn from '@/components/ui/back-btn'
 import LangChange from '@/components/ui/lang-change'
-import { useDrawerTexts, useSettingsTexts, useToolTipTexts } from '@/hooks/useOutsideTranslations.ts'
+import { useDrawerTexts, useSettingsTexts, useToolTipTexts } from '@/hooks/use-outside-translations.ts'
 import { useAppStore } from '@/stores/app.store.ts'
 import { ExternalLinks, Theme } from '@/utils/constants.ts'
 
