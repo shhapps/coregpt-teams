@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "戻る"
+  },
+  "langChange": {
+    "searchLanguage": "言語を検索...",
+    "noLanguagesFound": "言語が見つかりません"
   }
 }

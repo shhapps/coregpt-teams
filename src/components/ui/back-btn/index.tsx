@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react'
 
 import classes from './back-btn.module.css'
 
-import { useCommonTexts } from '@/hooks/useOutsideTranslations.ts'
+import { useCommonTexts } from '@/hooks/use-outside-translations.ts'
 import { useAppStore } from '@/stores/app.store.ts'
 import { MainContent } from '@/utils/constants.ts'
 

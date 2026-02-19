@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "Назад"
+  },
+  "langChange": {
+    "searchLanguage": "Поиск языка...",
+    "noLanguagesFound": "Языки не найдены"
   }
 }

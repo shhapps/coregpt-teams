@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "ย้อนกลับ"
+  },
+  "langChange": {
+    "searchLanguage": "ค้นหาภาษา...",
+    "noLanguagesFound": "ไม่พบภาษา"
   }
 }

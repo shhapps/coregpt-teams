@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "Geri"
+  },
+  "langChange": {
+    "searchLanguage": "Dil ara...",
+    "noLanguagesFound": "Dil bulunamadı"
   }
 }

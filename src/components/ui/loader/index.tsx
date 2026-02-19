@@ -1,7 +1,7 @@
 import { Box, Button, Spinner } from '@radix-ui/themes'
 import { Fragment, useEffect, useRef, useState } from 'react'
 
-import { useButtonTexts } from '@/hooks/useOutsideTranslations.ts'
+import { useButtonTexts } from '@/hooks/use-outside-translations.ts'
 import { cssAppColorVarName } from '@/utils/constants.ts'
 
 const Index = () => {

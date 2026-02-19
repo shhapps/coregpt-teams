@@ -81,6 +81,18 @@ export const useCommonTexts = () => {
   )
 }
 
+export const useLangChangeTexts = () => {
+  const { t } = useTranslation()
+
+  return useMemo(
+    () => ({
+      searchLanguageText: t(LocalesKeys.langChangeSearchLanguage),
+      langChangeNoLanguagesFoundText: t(LocalesKeys.langChangeNoLanguagesFound)
+    }),
+    [t]
+  )
+}
+
 export const useAiChatTexts = () => {
   const { t } = useTranslation()
 

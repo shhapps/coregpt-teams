@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "Kembali"
+  },
+  "langChange": {
+    "searchLanguage": "Cari bahasa...",
+    "noLanguagesFound": "Tidak ada bahasa ditemukan"
   }
 }

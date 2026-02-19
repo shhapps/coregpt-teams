@@ -1,11 +1,13 @@
 import { Box, Button, DropdownMenu, Flex, Text, TextField } from '@radix-ui/themes'
 import i18n from 'i18next'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { Check } from 'lucide-react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import classes from './lang-change.module.css'
 
-import { useAppStore } from '@/stores/app.store'
-import { AvailableLanguages } from '@/utils/constants'
+import { useLangChangeTexts } from '@/hooks/use-outside-translations.ts'
+import { useAppStore } from '@/stores/app.store.ts'
+import { AvailableLanguages } from '@/utils/constants.ts'
 
 const languages = [
   { title: 'English', code: AvailableLanguages.en, flag: '🇺🇸' },
@@ -37,6 +39,7 @@ const LangChange = () => {
   const [query, setQuery] = useState('')
   const [activeIndex, setActiveIndex] = useState(0)
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
+  const { searchLanguageText, langChangeNoLanguagesFoundText } = useLangChangeTexts()
 
   const filteredLanguages = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -48,10 +51,6 @@ const LangChange = () => {
   }, [query])
 
   useEffect(() => {
-    itemRefs.current = []
-  }, [filteredLanguages])
-
-  useEffect(() => {
     setActiveIndex(0)
   }, [query, open])
 
@@ -60,11 +59,14 @@ const LangChange = () => {
     if (el) el.scrollIntoView({ block: 'nearest' })
   }, [activeIndex])
 
-  const handleLanguageSelect = async (languageCode: AvailableLanguages, title: string) => {
-    setApplicationLanguage(title)
-    setOpen(false)
-    await i18n.changeLanguage(languageCode)
-  }
+  const handleLanguageSelect = useCallback(
+    async (languageCode: AvailableLanguages, title: string) => {
+      setApplicationLanguage(title)
+      setOpen(false)
+      await i18n.changeLanguage(languageCode)
+    },
+    [setApplicationLanguage]
+  )
 
   useEffect(() => {
     const defaultLanguage =
@@ -89,20 +91,24 @@ const LangChange = () => {
       }}
     >
       <DropdownMenu.Trigger>
-        <Button variant="ghost" size="1">
-          <Flex gap="3" align="center">
-            <Text as="span" size="1">
-              {applicationLanguage}
+        <Button variant="ghost" size="1" className={classes.triggerBtn}>
+          <Flex gap="1" align="center">
+            <Text as="span" size="1" className={classes.triggerFlag}>
+              {languages.find(l => l.title === applicationLanguage)?.flag ?? '🌐'}
+            </Text>
+            <Text as="span" size="1" className={classes.triggerLabel}>
+              {languages.find(l => l.title === applicationLanguage)?.engTitle ?? applicationLanguage}
             </Text>
             <DropdownMenu.TriggerIcon />
           </Flex>
         </Button>
       </DropdownMenu.Trigger>
 
-      <DropdownMenu.Content>
-        <Box p="2" pb="1">
+      <DropdownMenu.Content className={classes.dropdownContent} align="end">
+        <Box className={classes.searchWrapper}>
           <TextField.Root
-            placeholder="Search language…"
+            size="2"
+            placeholder={searchLanguageText}
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={e => {
@@ -134,27 +140,47 @@ const LangChange = () => {
 
         <Box className={classes.itemsScroll}>
           {filteredLanguages.length === 0 ? (
-            <DropdownMenu.Item disabled>
-              <Text size="2">No languages found</Text>
-            </DropdownMenu.Item>
+            <Box className={classes.emptyState}>
+              <Text size="1" color="gray">
+                {langChangeNoLanguagesFoundText}
+              </Text>
+            </Box>
           ) : (
-            filteredLanguages.map(({ title, code, flag, engTitle }, idx) => (
-              <DropdownMenu.Item
-                key={code}
-                onSelect={() => handleLanguageSelect(code, title)}
-                className={idx === activeIndex ? classes.activeItem : undefined}
-                ref={node => {
-                  itemRefs.current[idx] = node
-                }}
-                onMouseEnter={() => setActiveIndex(prev => (prev === idx ? prev : idx))}
-              >
-                <Text size="2">
-                  {flag} &nbsp;
-                  {title}
-                  {engTitle ? ` (${engTitle})` : ''}
-                </Text>
-              </DropdownMenu.Item>
-            ))
+            filteredLanguages.map(({ title, code, flag, engTitle }, idx) => {
+              const isActive = idx === activeIndex
+              const isSelected = title === applicationLanguage
+              return (
+                <DropdownMenu.Item
+                  key={code}
+                  onSelect={() => handleLanguageSelect(code, title)}
+                  className={`${classes.langItem}${isActive ? ` ${classes.activeItem}` : ''}`}
+                  ref={node => {
+                    itemRefs.current[idx] = node
+                  }}
+                  onMouseEnter={() => {
+                    if (activeIndex !== idx) setActiveIndex(idx)
+                  }}
+                >
+                  <Flex align="center" gap="2" justify="between" width="100%">
+                    <Flex align="center" gap="2">
+                      <Text as="span" className={classes.flagCell}>
+                        {flag}
+                      </Text>
+                      <Text size="2">
+                        {title}
+                        {engTitle ? (
+                          <Text as="span" size="1" color="gray">
+                            {' '}
+                            {engTitle}
+                          </Text>
+                        ) : null}
+                      </Text>
+                    </Flex>
+                    {isSelected && <Check size={13} className={classes.checkIcon} />}
+                  </Flex>
+                </DropdownMenu.Item>
+              )
+            })
           )}
         </Box>
       </DropdownMenu.Content>

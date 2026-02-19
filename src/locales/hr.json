@@ -42,5 +42,9 @@
   },
   "common": {
     "back": "Natrag"
+  },
+  "langChange": {
+    "searchLanguage": "Traži jezik...",
+    "noLanguagesFound": "Nema pronađenih jezika"
   }
 }
