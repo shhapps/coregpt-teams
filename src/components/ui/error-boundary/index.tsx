@@ -3,6 +3,8 @@ import { Component, type ErrorInfo, type PropsWithChildren } from 'react'
 
 import classes from './error-boundary.module.css'
 
+import { sendErrorToSentry } from '@/utils/sentry.ts'
+
 const ErrorAlert = () => {
   const handleClick = () => {
     localStorage.clear()
@@ -43,6 +45,7 @@ class ErrorBoundary extends Component<PropsWithChildren<object>, IErrorBoundaryS
   }
 
   componentDidCatch(_error: Error, _errorInfo: ErrorInfo) {
+    sendErrorToSentry(_error)
     this.setState({ hasError: true })
   }
 
