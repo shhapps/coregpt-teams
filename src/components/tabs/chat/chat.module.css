@@ -25,6 +25,27 @@
     cursor: pointer;
 }
 
+.privacyIcon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0.85;
+  margin-left: 2px;
+}
+
+.privacyIcon:hover {
+  opacity: 1;
+}
+
+.tooltipContent {
+  max-width: 240px;
+}
+
+.privacyLearnMoreLink {
+  color: var(--accent-9);
+  align-self: flex-start;
+}
+
 .messages {
     flex: 1;
     overflow-y: auto;
@@ -230,4 +251,13 @@
 .sendBtn:focus {
     outline: none;
     border: 1px solid var(--theme-color);
+}
+
+.circleUpActive {
+  color: var(--theme-color);
+}
+
+.circleUpDisabled {
+  color: var(--gray-a8);
+  cursor: not-allowed;
 }
