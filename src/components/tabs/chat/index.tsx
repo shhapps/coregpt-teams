@@ -100,6 +100,8 @@ export default function Chat() {
     aiChatAiGeneratedText,
     aiChatTypeMessageText
   } = useAiChatTexts()
+  const [userInput, setUserInput] = useState('')
+  const [sendBtnDisabled, setSendBtnDisabled] = useState(true)
 
   useLayoutEffect(() => {
     assistantRefs.current = messages.map((_, i) => assistantRefs.current[i] || createRef<HTMLDivElement>())
@@ -128,9 +130,11 @@ export default function Chat() {
 
   const QUESTIONS_LIMIT = 50
 
-  const handleSend = async () => {
-    const userMessage = textAreaRef.current?.value
-    if (!userMessage || chatResponseLoading) return
+  const handleSend = async (message?: string) => {
+    let inputToSend = userInput
+    if (!message) {
+      if (!userInput || chatResponseLoading || userInput?.trim().length === 0) return
+    } else inputToSend = message
 
     if (!isLimitBypassed()) {
       const count = getQuestionsCount()
@@ -140,10 +144,10 @@ export default function Chat() {
       }
     }
 
-    setMessages(old => [...old, { role: 'user', content: userMessage }])
-    textAreaRef.current!.value = ''
+    setMessages(old => [...old, { role: 'user', content: inputToSend }])
+    setUserInput('')
 
-    if (!chatResponseLoading) await handleGenerate(userMessage)
+    if (!chatResponseLoading) await handleGenerate(inputToSend)
   }
 
   const handleGenerate = async (prompt: string) => {
@@ -220,12 +224,12 @@ export default function Chat() {
   }
 
   const handleExampleClick = async (message: string) => {
-    textAreaRef.current!.value = message
-    await handleSend()
+    setUserInput(message)
+    await handleSend(message)
   }
 
   const handleNewChatClick = () => {
-    textAreaRef.current!.value = ''
+    setUserInput('')
     setMessages([])
     setConversationId()
     selectionSentRef.current = false
@@ -242,6 +246,10 @@ export default function Chat() {
     debounce(() => setStoreMessages(messages))()
   }, [messages, setStoreMessages])
 
+  useEffect(() => {
+    setSendBtnDisabled(userInput.trim().length === 0)
+  }, [userInput])
+
   return (
     <Box className={classes.wrapper}>
       <Box className={classes.header}>
@@ -255,7 +263,7 @@ export default function Chat() {
             </Text>
             <Tooltip
               content={
-                <Flex as="span" direction="column" gap="2" className={classes.privacyTooltipContent}>
+                <Flex as="span" direction="column" gap="2" className={classes.tooltipContent}>
                   <Text size="2">
                     {aiChatPrivacyTooltipText} &nbsp;
                     <Link
@@ -348,6 +356,8 @@ export default function Chat() {
           ref={textAreaRef}
           rows={5}
           placeholder={aiChatTypeMessageText}
+          value={userInput}
+          onChange={({ target: { value } }) => setUserInput(value)}
         />
         <IconButton
           onClick={handleSendClick}
@@ -356,8 +366,13 @@ export default function Chat() {
           className={classes.sendBtn}
           variant="ghost"
           autoFocus
+          disabled={sendBtnDisabled}
         >
-          {chatResponseLoading ? <CircleStop size="24" strokeWidth="1.5" color="red" /> : <CircleArrowUp size="24" />}
+          {chatResponseLoading ? (
+            <CircleStop size="24" strokeWidth="1.5" color="red" />
+          ) : (
+            <CircleArrowUp className={sendBtnDisabled ? classes.circleUpDisabled : classes.circleUpActive} size="24" />
+          )}
         </IconButton>
       </Box>
     </Box>
