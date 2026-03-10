@@ -1,6 +1,7 @@
 import axios, { AxiosError } from 'axios'
 
-import type { IApiAuthUser, IApiUser, IUpsertMicrosoftUser } from '@/interfaces/api.interfaces'
+import type { IApiAuthUser, IApiUser, ITokensResponse, IUpsertMicrosoftUser } from '@/interfaces/api.interfaces'
+import { useAppStore } from '@/stores/app.store.ts'
 import { API_URL, apiAppName, LocalStorageKeys } from '@/utils/constants'
 import { reloadWithClearing } from '@/utils/global'
 import { sendErrorToSentry } from '@/utils/sentry.ts'
@@ -18,8 +19,20 @@ axiosInstance.interceptors.response.use(
   function (response) {
     return response
   },
-  function (error) {
-    if (error instanceof AxiosError && error.response?.status === 401) reloadWithClearing()
+  async function (error) {
+    if (
+      error instanceof AxiosError &&
+      error.response?.status === 401 &&
+      !error.config?.url?.includes('/auth/refresh')
+    ) {
+      const refreshTokenResponse = await refreshTokensWithStoredRefreshToken()
+      if (refreshTokenResponse) {
+        if (!error.config) return Promise.reject(error)
+
+        error.config.headers['Authorization'] = `Bearer ${refreshTokenResponse.access_token}`
+        return axiosInstance(error.config)
+      } else reloadWithClearing()
+    }
     return Promise.reject(error)
   }
 )
@@ -77,6 +90,28 @@ export const sendAppNotification = async (data: object): Promise<void> => {
     console.error('Error while sending app notification: ', e)
     sendErrorToSentry(e)
     return
+  }
+}
+export const refreshTokensWithStoredRefreshToken = async (): Promise<ITokensResponse | null> => {
+  const refreshToken = localStorage.getItem(LocalStorageKeys.refreshToken)
+  if (!refreshToken) return null
+
+  try {
+    const { data } = await axiosInstance.post<ITokensResponse>(
+      `/auth/refresh?app=${apiAppName}`,
+      {},
+      { headers: { Authorization: `Bearer ${refreshToken}` } }
+    )
+
+    const appStore = useAppStore.getState()
+    appStore.updateAccessToken(data.access_token)
+    appStore.updateRefreshToken(data.refresh_token)
+
+    return data
+  } catch (err) {
+    console.error('Error while getting refresh token:', err)
+    sendErrorToSentry(err)
+    return null
   }
 }
 

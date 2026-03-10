@@ -32,6 +32,7 @@ export enum Theme {
 
 export enum LocalStorageKeys {
   accessToken = 'access_token',
+  refreshToken = 'refresh-token',
   requestId = 'request_id',
   theme = 'theme',
   questionsCount = 'questions_count',

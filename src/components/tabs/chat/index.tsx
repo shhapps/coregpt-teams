@@ -22,6 +22,7 @@ import { useStreamChunkProcessor } from '@/hooks/use-stream-chunk-processor.ts'
 import type { IMessage } from '@/interfaces/app.interfaces.ts'
 import { useAppStore } from '@/stores/app.store.ts'
 import { useChatStore } from '@/stores/chat.store.ts'
+import { refreshTokensWithStoredRefreshToken } from '@/utils/axios-utils.ts'
 import {
   API_URL,
   conversationIdHeader,
@@ -152,29 +153,44 @@ export default function Chat() {
 
   const handleGenerate = async (prompt: string) => {
     try {
-      const accessToken = localStorage.getItem(LocalStorageKeys.accessToken)
-      const headers = {
+      const buildHeaders = (token: string): HeadersInit => ({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken!}`,
+        Authorization: `Bearer ${token}`,
         [LocalStorageKeys.requestId]: localStorage.getItem(LocalStorageKeys.requestId)!
-      } as HeadersInit
+      })
+
+      const sendRequest = (headers: HeadersInit, signal: AbortSignal) =>
+        fetch(`${API_URL}/teams/ai-chat`, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({
+            message: prompt,
+            conversation_id: conversationId
+          }),
+          signal
+        })
 
       setChatResponseLoading(true)
 
       const abortController = new AbortController()
       abortControllerRef.current = abortController
 
-      const response = await fetch(`${API_URL}/teams/ai-chat`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          message: prompt,
-          conversation_id: conversationId
-        }),
-        signal: abortController.signal
-      })
+      let accessToken = localStorage.getItem(LocalStorageKeys.accessToken)
 
-      if (response.status === 401) return reloadWithClearing()
+      let headers = buildHeaders(accessToken!)
+      let response = await sendRequest(headers, abortController.signal)
+
+      if (response.status === 401) {
+        const refreshed = await refreshTokensWithStoredRefreshToken()
+        if (!refreshed) return reloadWithClearing()
+
+        accessToken = refreshed.access_token
+        headers = buildHeaders(accessToken)
+        response = await sendRequest(headers, abortController.signal)
+
+        if (response.status === 401) return reloadWithClearing()
+      }
+
       if (!response.ok) throw new Error((await response.json()).message)
       if (!response.body) throw new Error('Streaming not supported')
 
