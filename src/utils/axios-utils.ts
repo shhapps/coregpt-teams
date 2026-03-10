@@ -92,6 +92,7 @@ export const sendAppNotification = async (data: object): Promise<void> => {
     return
   }
 }
+
 export const refreshTokensWithStoredRefreshToken = async (): Promise<ITokensResponse | null> => {
   const refreshToken = localStorage.getItem(LocalStorageKeys.refreshToken)
   if (!refreshToken) return null
