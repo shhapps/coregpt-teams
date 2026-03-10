@@ -15,6 +15,8 @@ export interface IAppState {
   setSnackbar: (data: ISnackbarProps) => void
   accessToken?: string
   updateAccessToken: (accessToken?: string) => void
+  refreshToken?: string
+  updateRefreshToken: (refreshToken?: string) => void
   userInfo?: IUserInfo
   updateUserInfo: (userInfo?: IUserInfo) => void
   mainContent: MainContent
@@ -45,6 +47,13 @@ export const useAppStore = create<IAppState>()(
         if (accessToken) {
           localStorage.setItem(LocalStorageKeys.accessToken, accessToken)
           set({ accessToken })
+        }
+      },
+      refreshToken: localStorage.getItem(LocalStorageKeys.refreshToken) as string,
+      updateRefreshToken: (refreshToken?: string) => {
+        if (refreshToken) {
+          localStorage.setItem(LocalStorageKeys.refreshToken, refreshToken)
+          set({ refreshToken })
         }
       },
       updateUserInfo: (userInfo?: IUserInfo) => {

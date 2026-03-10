@@ -3,7 +3,7 @@ import { getUserData, upsertMicrosoftUser } from '@/utils/axios-utils'
 import { initializeTeams } from '@/utils/teams/teams-utils.ts'
 
 export const useAuthData = () => {
-  const { accessToken, userInfo, updateUserInfo, updateAccessToken, requestId } = useAppStore()
+  const { accessToken, userInfo, updateUserInfo, updateAccessToken, requestId, updateRefreshToken } = useAppStore()
 
   const checkAuthState = async () => {
     // If token exists, it means user authenticated and enough to update user info
@@ -42,6 +42,7 @@ export const useAuthData = () => {
           access_token: requestId
         })
         updateAccessToken(userData.access_token)
+        updateRefreshToken(userData.refresh_token)
         updateUserInfo({ email: userData.email })
       }
     }
