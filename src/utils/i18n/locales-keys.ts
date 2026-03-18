@@ -32,6 +32,7 @@ export enum LocalesKeys {
   drawerHelp = 'drawer.help',
   drawerPrivacyPolicy = 'drawer.privacyPolicy',
   drawerTermsOfUse = 'drawer.termsOfUse',
+  drawerMoreApps = 'drawer.moreApps',
 
   /* Common */
   commonBack = 'common.back',
