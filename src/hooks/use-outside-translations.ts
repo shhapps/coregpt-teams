@@ -64,7 +64,8 @@ export const useDrawerTexts = () => {
       drawerContactUsText: t(LocalesKeys.drawerContactUs),
       drawerHelpText: t(LocalesKeys.drawerHelp),
       drawerPrivacyPolicyText: t(LocalesKeys.drawerPrivacyPolicy),
-      drawerTermsOfUseText: t(LocalesKeys.drawerTermsOfUse)
+      drawerTermsOfUseText: t(LocalesKeys.drawerTermsOfUse),
+      drawerMoreAppsText: t(LocalesKeys.drawerMoreApps)
     }),
     [t]
   )

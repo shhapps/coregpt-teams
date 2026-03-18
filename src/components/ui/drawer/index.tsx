@@ -1,16 +1,20 @@
-import { Avatar, Box, Flex, IconButton, Link, Separator, Text, Tooltip } from '@radix-ui/themes'
+import { Avatar, Box, Button, Flex, IconButton, Link, Separator, Text, Tooltip } from '@radix-ui/themes'
 import {
+  ChevronDown,
   FileText,
+  HelpCircle,
   House,
-  Menu,
-  Mail,
-  PanelLeftClose,
-  ShieldCheck,
-  MessageCircleMore,
+  LayoutGrid,
   Lightbulb,
+  Mail,
+  Menu,
+  MessageCircleMore,
+  PanelLeftClose,
   Settings,
-  HelpCircle
+  ShieldCheck
 } from 'lucide-react'
+import { useState } from 'react'
+import React from 'react'
 
 import { Drawer } from './base-drawer'
 import classes from './drawer.module.css'
@@ -19,8 +23,8 @@ import { useFeaturebase } from '@/hooks/use-featurebase.ts'
 import { useDrawerTexts, useToolTipTexts } from '@/hooks/use-outside-translations.ts'
 import type { IUserInfo } from '@/interfaces/auth.interfaces.ts'
 import { useAppStore } from '@/stores/app.store.ts'
-import { ExternalLinks, MainContent } from '@/utils/constants.ts'
-import { LogoImage } from '@/utils/global/files.ts'
+import { AppNames, baseAppName, ExternalLinks, MainContent } from '@/utils/constants.ts'
+import { LogoImage, OutlookLogo, ExcelLogo, GoogleLogo, WordLogo } from '@/utils/global/files.ts'
 
 function getAvatarToolTipText(userInfo?: IUserInfo) {
   const firstName = userInfo?.firstName ? userInfo?.firstName : ''
@@ -29,8 +33,32 @@ function getAvatarToolTipText(userInfo?: IUserInfo) {
   return namePart ? `${namePart} - ${userInfo?.email}` : userInfo?.email
 }
 
+const moreApps = [
+  {
+    name: AppNames.outlook,
+    logoSrc: OutlookLogo,
+    href: ExternalLinks.outlookOverviewPage
+  },
+  {
+    name: AppNames.excel,
+    logoSrc: ExcelLogo,
+    href: ExternalLinks.excelOverviewPage
+  },
+  {
+    name: AppNames.word,
+    logoSrc: WordLogo,
+    href: ExternalLinks.wordOverviewPage
+  },
+  {
+    name: AppNames.googleWorkspace,
+    logoSrc: GoogleLogo,
+    href: ExternalLinks.googleWorkspaceReviewPage
+  }
+]
+
 const Index = () => {
   const { drawerOpen, setDrawerOpen, setMainContent, mainContent, userInfo } = useAppStore()
+  const [moreAppsOpen, setMoreAppsOpen] = useState(false)
   const { showWidget } = useFeaturebase()
   const { homeText, settingsText } = useToolTipTexts()
   const {
@@ -39,7 +67,8 @@ const Index = () => {
     drawerContactUsText,
     drawerHelpText,
     drawerPrivacyPolicyText,
-    drawerTermsOfUseText
+    drawerTermsOfUseText,
+    drawerMoreAppsText
   } = useDrawerTexts()
 
   const handleMainContentClick = (event: React.MouseEvent, mainContent: MainContent) => {
@@ -74,11 +103,11 @@ const Index = () => {
                     fallback={<img className={classes.logoImage} src={LogoImage} alt="logo" />}
                   />
                 </IconButton>
-                {/*<Drawer.Title asChild>*/}
-                {/*  <Text size="4" className={classes.drawerTitle} weight="medium">*/}
-                {/*    {baseAppName}*/}
-                {/*  </Text>*/}
-                {/*</Drawer.Title>*/}
+                <Drawer.Title asChild>
+                  <Text size="4" className={classes.drawerTitle} weight="medium">
+                    {baseAppName}
+                  </Text>
+                </Drawer.Title>
               </Link>
             </Flex>
             <Drawer.Close asChild>
@@ -192,6 +221,44 @@ const Index = () => {
                   <Text as="span">{drawerTermsOfUseText}</Text>
                 </Flex>
               </Link>
+
+              <Box className={classes.moreAppsSection}>
+                <Separator size="4" className={classes.moreAppsSeparator} />
+                <Button
+                  className={classes.moreAppsTrigger}
+                  onClick={() => setMoreAppsOpen((prev: boolean) => !prev)}
+                  aria-expanded={moreAppsOpen}
+                >
+                  <Text as="span" className={classes.moreAppsTriggerLeft}>
+                    <LayoutGrid className={classes.moreAppsTriggerIcon} width={18} height={18} />
+                    <Text className={classes.moreAppsTitle}>{drawerMoreAppsText}</Text>
+                  </Text>
+                  <ChevronDown
+                    width={16}
+                    height={16}
+                    className={`${classes.moreAppsChevron} ${moreAppsOpen ? classes.moreAppsChevronOpen : ''}`}
+                  />
+                </Button>
+                <Box className={`${classes.moreAppsList} ${moreAppsOpen ? classes.moreAppsListOpen : ''}`}>
+                  {moreApps.map(app => (
+                    <Tooltip key={app.name} content={app.name} delayDuration={1000}>
+                      <Link
+                        href={app.href}
+                        target="_blank"
+                        onClick={() => setDrawerOpen(false)}
+                        className={classes.moreAppRow}
+                      >
+                        <Box className={classes.moreAppIconWrap}>
+                          <img src={app.logoSrc} alt={app.name} className={classes.moreAppIcon} />
+                        </Box>
+                        <Text className={classes.moreAppName} truncate>
+                          {app.name}
+                        </Text>
+                      </Link>
+                    </Tooltip>
+                  ))}
+                </Box>
+              </Box>
             </Flex>
           </Box>
           <Box className={classes.userInfo}>

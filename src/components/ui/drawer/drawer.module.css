@@ -2,13 +2,6 @@
     padding-top: 8px;
     padding-left: 5px;
     padding-right: 5px;
-    max-width: 75vw;
-}
-
-@media (min-width: 1024px) {
-    .drawerContent {
-        max-width: 25vw;
-    }
 }
 
 .drawerHeader {
@@ -66,8 +59,9 @@
 .mainContent {
     font-family: sans-serif;
     flex: 1;
-    overflow: auto;
+    overflow: hidden auto;
     margin-top: -16px;
+    min-width: 0;
 }
 
 .drawerNavLink {
@@ -82,12 +76,12 @@
 }
 
 .drawerNavLink:hover {
-    background: rgba(58, 91, 199, 0.06);
+    background: rgb(58 91 199 / 6%);
     color: var(--theme-color);
 }
 
 .drawerNavLinkActive {
-    background: rgba(58, 91, 199, 0.10);
+    background: rgb(58 91 199 / 10%);
 }
 
 .drawerNavLinkActive,
@@ -118,6 +112,8 @@
 
 .drawerWrapper {
     height: 100%;
+    overflow: hidden;
+    min-width: 0;
 }
 
 .logoImage {
@@ -151,3 +147,118 @@
     cursor: pointer;
 }
 
+/* ── More Apps dropdown section ── */
+.moreAppsSection {
+    margin-top: 5px;
+}
+
+.moreAppsSeparator {
+    margin-bottom: 4px !important;
+}
+
+/* Trigger button — same look as a nav link */
+.moreAppsTrigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 13px;
+    border-radius: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 120ms ease;
+    box-sizing: border-box;
+}
+
+.moreAppsTrigger:hover {
+    background: rgb(58 91 199 / 6%);
+    color: var(--theme-color);
+}
+
+.moreAppsTrigger:hover > .moreAppsChevron {
+    color: var(--theme-color);
+}
+
+.moreAppsTriggerLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.moreAppsTriggerIcon {
+    flex-shrink: 0;
+}
+
+.moreAppsTitle {
+    font-size: var(--font-size-7);
+    font-weight: 400;
+    margin-left: 2px;
+}
+
+.moreAppsChevron {
+    color: var(--gray-9);
+    transition: transform 200ms ease;
+    flex-shrink: 0;
+}
+
+.moreAppsChevronOpen {
+    transform: rotate(180deg);
+}
+
+/* Dropdown list */
+.moreAppsList {
+    overflow: hidden;
+    transition: max-height 200ms ease, opacity 200ms ease;
+    max-height: 0;
+    opacity: 0;
+}
+
+.moreAppsListOpen {
+    max-height: 300px;
+    opacity: 1;
+}
+
+/* ── App rows — mirrors nav link style ── */
+.moreAppRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 12px 8px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 120ms ease;
+}
+
+.moreAppRow:hover {
+    background: rgb(58 91 199 / 6%);
+}
+
+.moreAppIconWrap {
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.moreAppIcon {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    display: block;
+}
+
+.moreAppName {
+    font-size: var(--font-size-2);
+    color: var(--gray-11);
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

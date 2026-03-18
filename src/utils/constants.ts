@@ -10,6 +10,13 @@ export const baseAppName = 'CoreGPT'
 
 export const apiAppName = 'Teams'
 
+export enum AppNames {
+  outlook = 'CoreGPT for Outlook',
+  word = 'CoreGPT for Word',
+  excel = 'CoreGPT for Excel',
+  googleWorkspace = 'ChatGPT for Google Workspace'
+}
+
 export enum StoreNames {
   mainStore = appName,
   chatStore = 'chat-store'
@@ -22,7 +29,11 @@ export enum ExternalLinks {
   coregptAppsMainPage = 'https://coregptapps.com',
   suggestFeatureLink = 'https://chatgptaiteams.userjot.com',
   appReviewPage = 'https://marketplace.microsoft.com/en-us/product/office/WA200009757?tab=Reviews',
-  helpLink = 'https://help.coregptapps.com'
+  helpLink = 'https://help.coregptapps.com',
+  googleWorkspaceReviewPage = 'https://workspace.google.com/marketplace/app/chatgpt_ai_for_workspace/845108372332',
+  wordOverviewPage = 'https://appsource.microsoft.com/en-us/product/office/WA200008935?tab=Overview',
+  excelOverviewPage = 'https://marketplace.microsoft.com/en-us/product/WA200008989?tab=Overview',
+  outlookOverviewPage = 'https://marketplace.microsoft.com/en-us/product/office/WA200009260?tab=Overview'
 }
 
 export enum Theme {
